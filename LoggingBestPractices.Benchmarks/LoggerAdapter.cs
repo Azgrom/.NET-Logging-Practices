@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.Benchmarks;
 
-internal class LoggerAdapter<T> : ILoggerAdapter<T>
+public class LoggerAdapter<T> : ILoggerAdapter<T>
 {
     private readonly ILogger<T> _logger;
 

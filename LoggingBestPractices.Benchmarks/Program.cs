@@ -2,7 +2,7 @@ using BenchmarkDotNet.Running;
 
 namespace LoggingBestPractices.Benchmarks;
 
-public class Program
+public static class Program
 {
     public static void Main()
     {

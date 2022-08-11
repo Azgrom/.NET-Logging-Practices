@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Externals\Externals.csproj" />
+      <ProjectReference Include="..\LoggingBestPractices.Benchmarks\LoggingBestPractices.Benchmarks.csproj" />
     </ItemGroup>
 
 </Project>
