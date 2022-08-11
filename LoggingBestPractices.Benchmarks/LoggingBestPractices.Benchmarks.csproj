@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <AssemblyName>LoggingBestPractices.Benchmarks</AssemblyName>
+        <RootNamespace>LoggingBestPractices.Benchmarks</RootNamespace>
+        <PackageId>LoggingBestPractices.Benchmarks</PackageId>
+        <Authors>LoggingBestPractices.Benchmarks</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    </ItemGroup>
+
+</Project>

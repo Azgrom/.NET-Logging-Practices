@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingStudyCase", "Logging
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingBestPracticesApi", "LoggingBestPracticesApi\LoggingBestPracticesApi.csproj", "{77C8F0D3-6336-4AAC-88C4-337C67FE42D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingBestPractices.Benchmarks", "LoggingBestPractices.Benchmarks\LoggingBestPractices.Benchmarks.csproj", "{D16A5A11-8BBB-47AF-AE78-A0183B212885}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{77C8F0D3-6336-4AAC-88C4-337C67FE42D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77C8F0D3-6336-4AAC-88C4-337C67FE42D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77C8F0D3-6336-4AAC-88C4-337C67FE42D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D16A5A11-8BBB-47AF-AE78-A0183B212885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D16A5A11-8BBB-47AF-AE78-A0183B212885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D16A5A11-8BBB-47AF-AE78-A0183B212885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D16A5A11-8BBB-47AF-AE78-A0183B212885}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

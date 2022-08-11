@@ -1,4 +1,4 @@
-bin/
+bin/LoggingBestPractives.Benchmarks
 obj/
 /packages/
 riderModule.iml
