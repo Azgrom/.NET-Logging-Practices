@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingBestPractices.Defaul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Externals", "Externals\Externals.csproj", "{13D1CD27-ACDE-42A5-8123-44F887786AA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingBestPractices.Serilogging", "LoggingBestPractices.Serilogging\LoggingBestPractices.Serilogging.csproj", "{C243CC05-2A07-487F-8ADD-DF8078225C52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{13D1CD27-ACDE-42A5-8123-44F887786AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13D1CD27-ACDE-42A5-8123-44F887786AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13D1CD27-ACDE-42A5-8123-44F887786AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C243CC05-2A07-487F-8ADD-DF8078225C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C243CC05-2A07-487F-8ADD-DF8078225C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C243CC05-2A07-487F-8ADD-DF8078225C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C243CC05-2A07-487F-8ADD-DF8078225C52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
