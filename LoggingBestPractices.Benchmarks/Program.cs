@@ -1,11 +1,4 @@
 using BenchmarkDotNet.Running;
+using LoggingBestPractices.Benchmarks;
 
-namespace LoggingBestPractices.Benchmarks;
-
-public static class Program
-{
-    public static void Main()
-    {
-        var summary = BenchmarkRunner.Run<Benchmarks>();
-    }
-}
+var summary = BenchmarkRunner.Run<Benchmarks>();

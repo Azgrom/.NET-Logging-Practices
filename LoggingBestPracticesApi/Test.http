@@ -1,4 +1,0 @@
-GET http://localhost:5215/WeatherForecast?days=3
-Accept: application/json
-
-###

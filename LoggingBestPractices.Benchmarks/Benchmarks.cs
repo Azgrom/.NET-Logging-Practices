@@ -1,47 +1,89 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+using LoggingBestPractices.DefaultLogging;
+using LoggingBestPractices.Serilogging;
 using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.Benchmarks;
 
+[CategoriesColumn]
+[GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
 [MemoryDiagnoser]
+[SimpleJob(RuntimeMoniker.Net60)]
+[SimpleJob(RuntimeMoniker.Net70)]
+[ThreadingDiagnoser]
 public class Benchmarks
 {
-    private const string LogWithParameters = "Log with parameters {0} and {1}";
-    private const string LogWithoutParameters = "Log without parameters";
+    private const string MicrosoftLoggerCategory = "Microsoft Logger";
+    private const string SerilogLoggerCategory = "Serilog Logger";
 
-    private readonly ILoggerFactory _loggerFactory =
-        LoggerFactory.Create(builder => builder.AddConsole().SetMinimumLevel(LogLevel.Warning));
+    private FixedMessageMicrosoftLogger _fixedMessageMicrosoftLogger;
+    private PreInterpolatedMessageMicrosoftLogger _preInterpolatedMessageMicrosoftLogger;
+    private PreStructuredMessageMicrosoftLogger _preStructuredMessageMicrosoftLogger;
 
-    private readonly ILogger<Benchmarks> _logger;
-    private ILoggerAdapter<Benchmarks> _adaptedLogger;
+    private FixedMessageSerilogLogger _fixedMessageSerilogLogger;
+    private PreInterpolatedMessageSerilogLogger _preInterpolatedMessageSerilogLogger;
+    private PreStructuredMessageSerilogLogger _preStructuredMessageSerilogLogger;
+    
+    private FixedMessageMicrosoftConsoleLogger _fixedMessageMicrosoftConsoleLogger;
+    private PreInterpolatedMessageMicrosoftConsoleLogger _preInterpolatedMessageMicrosoftConsoleLogger;
+    private PreStructuredMessageMicrosoftConsoleLogger _preStructuredMessageMicrosoftConsoleLogger;
 
-    public Benchmarks()
+    private FixedMessageSerilogConsoleLogger _fixedMessageSerilogConsoleLogger;
+    private PreInterpolatedMessageSerilogConsoleLogger _preInterpolatedMessageSerilogConsoleLogger;
+    private PreStructuredMessageSerilogConsoleLogger _preStructuredMessageSerilogConsoleLogger;
+
+    [Params(LogLevel.Information, LogLevel.Warning)]
+    public LogLevel LogLevel;
+
+    [GlobalSetup]
+    public void Setup()
     {
-        _logger = new Logger<Benchmarks>(_loggerFactory);
-        _adaptedLogger = new LoggerAdapter<Benchmarks>(_logger);
+        _fixedMessageMicrosoftLogger = new FixedMessageMicrosoftLogger(LogLevel);
+        _preInterpolatedMessageMicrosoftLogger = new PreInterpolatedMessageMicrosoftLogger(LogLevel);
+        _preStructuredMessageMicrosoftLogger = new PreStructuredMessageMicrosoftLogger(LogLevel);
+
+        _fixedMessageSerilogLogger = new FixedMessageSerilogLogger(LogLevel);
+        _preInterpolatedMessageSerilogLogger = new PreInterpolatedMessageSerilogLogger(LogLevel);
+        _preStructuredMessageSerilogLogger = new PreStructuredMessageSerilogLogger(LogLevel);
+        
+        _fixedMessageMicrosoftConsoleLogger = new FixedMessageMicrosoftConsoleLogger(LogLevel);
+        _preInterpolatedMessageMicrosoftConsoleLogger = new PreInterpolatedMessageMicrosoftConsoleLogger(LogLevel);
+        _preStructuredMessageMicrosoftConsoleLogger = new PreStructuredMessageMicrosoftConsoleLogger(LogLevel);
+
+        _fixedMessageSerilogConsoleLogger = new FixedMessageSerilogConsoleLogger(LogLevel);
+        _preStructuredMessageSerilogConsoleLogger = new PreStructuredMessageSerilogConsoleLogger(LogLevel);
+        _preInterpolatedMessageSerilogConsoleLogger = new PreInterpolatedMessageSerilogConsoleLogger(LogLevel);
     }
 
-    [Benchmark]
-    public void Log_WithoutIf_WithoutParams() => _logger.LogInformation(LogWithoutParameters);
+    [Benchmark(Baseline = true)]
+    [BenchmarkCategory(MicrosoftLoggerCategory)]
+    public void FixedMessageMicrosoftConsoleLogger() =>
+        _fixedMessageMicrosoftConsoleLogger.Execute();
 
     [Benchmark]
-    public void Log_WithIf_WithoutParams()
-    {
-        if (_logger.IsEnabled(LogLevel.Information)) _logger.LogInformation(LogWithoutParameters);
-    }
+    [BenchmarkCategory(MicrosoftLoggerCategory)]
+    public void PreStructuredMessageMicrosoftConsoleLogger() =>
+        _preStructuredMessageMicrosoftConsoleLogger.Execute();
 
     [Benchmark]
-    public void Log_WithoutIf_WithParams() => _logger.LogInformation(LogWithParameters, 51, 64);
+    [BenchmarkCategory(MicrosoftLoggerCategory)]
+    public void PreInterpolatedMessageMicrosoftConsoleLogger() =>
+        _preInterpolatedMessageMicrosoftConsoleLogger.Execute();
+
+    [Benchmark(Baseline = true)]
+    [BenchmarkCategory(SerilogLoggerCategory)]
+    public void FixedMessageSerilogConsoleLogger() => 
+        _fixedMessageSerilogConsoleLogger.Execute();
 
     [Benchmark]
-    public void Log_WithIf_WithParams()
-    {
-        if (_logger.IsEnabled(LogLevel.Information)) _logger.LogInformation(LogWithParameters, 51, 64);
-    }
+    [BenchmarkCategory(SerilogLoggerCategory)]
+    public void PreStructuredMessageSerilogConsoleLogger() =>
+        _preStructuredMessageSerilogConsoleLogger.Execute();
 
-    // [Benchmark]
-    // public void Log_WithAdapter_WithParams()
-    // {
-    //     _adaptedLogger.LogInformation(LogWithParameters, 51, 64);
-    // }
+    [Benchmark]
+    [BenchmarkCategory(SerilogLoggerCategory)]
+    public void PreInterpolatedMessageSerilogConsoleLogger() =>
+        _preInterpolatedMessageSerilogConsoleLogger.Execute();
 }
