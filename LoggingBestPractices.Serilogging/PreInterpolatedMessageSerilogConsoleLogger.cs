@@ -25,4 +25,12 @@ public class PreInterpolatedMessageSerilogConsoleLogger
 
     public void Execute() =>
         _logger.Information($"Random number {Random.Shared.Next()}");
+
+    public static void IterateExecution100MillionTimes_Warning()
+    {
+        var preInterpolatedMessageSerilogConsoleLogger = new PreInterpolatedMessageSerilogConsoleLogger(LogLevel.Warning);
+
+        for (int i = 0; i < 100_000_000; i++)
+            preInterpolatedMessageSerilogConsoleLogger.Execute();
+    }
 }

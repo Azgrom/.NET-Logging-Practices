@@ -14,4 +14,12 @@ public sealed class PreStructuredMessageMicrosoftConsoleLogger
 
     public void Execute() =>
         _logger.LogInformation("Random number {NextRandomInteger}", Random.Shared.Next());
+
+    public static void IterateExecution100MillionTimes_Warning()
+    {
+        var preStructuredMessageMicrosoftConsoleLogger = new PreStructuredMessageMicrosoftConsoleLogger(LogLevel.Warning);
+
+        for (int i = 0; i < 100_000_000; i++)
+            preStructuredMessageMicrosoftConsoleLogger.Execute();
+    }
 }

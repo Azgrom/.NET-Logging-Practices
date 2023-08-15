@@ -12,4 +12,12 @@ public sealed class PreInterpolatedMessageMicrosoftEmptyLogger
         );
 
     public void Execute() => _logger.LogInformation($"Random number {Random.Shared.Next()}");
+
+    public static void IterateExecution100MillionTimes_Warning()
+    {
+        var preInterpolatedMessageMicrosoftEmptyLogger = new PreInterpolatedMessageMicrosoftEmptyLogger(LogLevel.Warning);
+
+        for (int i = 0; i < 100_000_000; i++)
+            preInterpolatedMessageMicrosoftEmptyLogger.Execute();
+    }
 }

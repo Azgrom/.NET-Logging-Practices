@@ -24,4 +24,12 @@ public class PreInterpolatedMessageSerilogEmptyLogger
 
     public void Execute() =>
         _logger.Information($"Random number {Random.Shared.Next()}");
+
+    public static void IterateExecution100MillionTimes_Warning()
+    {
+        var preInterpolatedMessageSerilogEmptyLogger = new PreInterpolatedMessageSerilogEmptyLogger(LogLevel.Warning);
+
+        for (int i = 0; i < 100_000_000; i++)
+            preInterpolatedMessageSerilogEmptyLogger.Execute();
+    }
 }

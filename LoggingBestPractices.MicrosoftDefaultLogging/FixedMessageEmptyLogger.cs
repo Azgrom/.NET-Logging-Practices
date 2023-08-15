@@ -12,4 +12,12 @@ public sealed class FixedMessageMicrosoftEmptyLogger
         );
 
     public void Execute() => _logger.LogInformation("Just a plain fixed Message");
+
+    public static void IterateExecution100MillionTimes_Warning()
+    {
+        var fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel.Warning);
+
+        for (int i = 0; i < 100_000_000; i++)
+            fixedMessageMicrosoftEmptyLogger.Execute();
+    }
 }

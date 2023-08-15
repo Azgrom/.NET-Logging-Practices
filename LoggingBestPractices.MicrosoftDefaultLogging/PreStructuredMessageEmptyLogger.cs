@@ -13,4 +13,12 @@ public sealed class PreStructuredMessageMicrosoftEmptyLogger
 
     public void Execute() =>
         _logger.LogInformation("Random number {NextRandomInteger}", Random.Shared.Next());
+
+    public static void IterateExecution100MillionTimes_Warning()
+    {
+        var preStructuredMessageMicrosoftEmptyLogger = new PreStructuredMessageMicrosoftEmptyLogger(LogLevel.Warning);
+
+        for (int i = 0; i < 100_000_000; i++)
+            preStructuredMessageMicrosoftEmptyLogger.Execute();
+    }
 }

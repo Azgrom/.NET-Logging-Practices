@@ -21,4 +21,14 @@ public class PreStructuredMessageSerilogConsoleLogger
 
     public void Execute() =>
         _logger.Information("Random number {NextRandomInteger}", Random.Shared.Next());
+
+    public static void IterateExecution100MillionTimes_Warning()
+    {
+        var preStructuredMessageSerilogConsoleLogger = new PreStructuredMessageSerilogConsoleLogger(LogLevel.Warning);
+
+        for (int i = 0; i < 100_000_000; i++)
+        {
+            preStructuredMessageSerilogConsoleLogger.Execute();
+        }
+    }
 }

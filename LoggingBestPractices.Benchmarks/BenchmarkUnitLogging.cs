@@ -7,11 +7,15 @@ using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.Benchmarks;
 
+/// <summary>
+///     Benchmarks Serilog versus Microsoft.Logging with and without Console sink. And with different message template
+/// pre-processing styles
+/// </summary>
 [CategoriesColumn]
 [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
 [MemoryDiagnoser]
 [SimpleJob(RuntimeMoniker.Net70)]
-public class Benchmarks
+public class BenchmarkUnitLogging
 {
     private const string SerilogEmptyLoggerCategory = "Serilog Empty Logger";
     private const string MicrosoftEmptyLoggerCategory = "Microsoft Empty Logger";
@@ -19,16 +23,15 @@ public class Benchmarks
     private const string SerilogConsoleLoggerCategory = "Serilog Console Logger";
 
     private FixedMessageMicrosoftConsoleLogger _fixedMessageMicrosoftConsoleLogger;
-
     private FixedMessageMicrosoftEmptyLogger _fixedMessageMicrosoftEmptyLogger;
-
     private FixedMessageSerilogConsoleLogger _fixedMessageSerilogConsoleLogger;
-
     private FixedMessageSerilogEmptyLogger _fixedMessageSerilogEmptyLogger;
+
     private PreInterpolatedMessageMicrosoftConsoleLogger _preInterpolatedMessageMicrosoftConsoleLogger;
     private PreInterpolatedMessageMicrosoftEmptyLogger _preInterpolatedMessageMicrosoftEmptyLogger;
     private PreInterpolatedMessageSerilogConsoleLogger _preInterpolatedMessageSerilogConsoleLogger;
     private PreInterpolatedMessageSerilogEmptyLogger _preInterpolatedMessageSerilogEmptyLogger;
+    
     private PreStructuredMessageMicrosoftConsoleLogger _preStructuredMessageMicrosoftConsoleLogger;
     private PreStructuredMessageMicrosoftEmptyLogger _preStructuredMessageMicrosoftEmptyLogger;
     private PreStructuredMessageSerilogConsoleLogger _preStructuredMessageSerilogConsoleLogger;
