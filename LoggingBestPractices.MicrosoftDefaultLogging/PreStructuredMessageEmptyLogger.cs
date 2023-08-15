@@ -2,12 +2,12 @@ using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
 
-public sealed class PreStructuredMessageMicrosoftLogger
+public sealed class PreStructuredMessageMicrosoftEmptyLogger
 {
-    private readonly Logger<PreStructuredMessageMicrosoftLogger> _logger;
+    private readonly Logger<PreStructuredMessageMicrosoftEmptyLogger> _logger;
 
-    public PreStructuredMessageMicrosoftLogger(LogLevel logLevel) =>
-        _logger = new Logger<PreStructuredMessageMicrosoftLogger>(
+    public PreStructuredMessageMicrosoftEmptyLogger(LogLevel logLevel) =>
+        _logger = new Logger<PreStructuredMessageMicrosoftEmptyLogger>(
             LoggerFactory.Create(builder => builder.SetMinimumLevel(logLevel))
         );
 

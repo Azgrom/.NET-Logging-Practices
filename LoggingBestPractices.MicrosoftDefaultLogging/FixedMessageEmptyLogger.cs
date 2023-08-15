@@ -2,12 +2,12 @@ using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
 
-public sealed class FixedMessageMicrosoftLogger
+public sealed class FixedMessageMicrosoftEmptyLogger
 {
-    private readonly Logger<FixedMessageMicrosoftLogger> _logger;
+    private readonly Logger<FixedMessageMicrosoftEmptyLogger> _logger;
 
-    public FixedMessageMicrosoftLogger(LogLevel logLevel) =>
-        _logger = new Logger<FixedMessageMicrosoftLogger>(
+    public FixedMessageMicrosoftEmptyLogger(LogLevel logLevel) =>
+        _logger = new Logger<FixedMessageMicrosoftEmptyLogger>(
             LoggerFactory.Create(builder => builder.SetMinimumLevel(logLevel))
         );
 

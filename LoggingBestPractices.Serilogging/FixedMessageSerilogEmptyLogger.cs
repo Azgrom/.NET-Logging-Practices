@@ -1,25 +1,27 @@
 using Microsoft.Extensions.Logging;
 using Serilog;
-using Serilog.Events;
 using ILogger = Serilog.ILogger;
 
 namespace LoggingBestPractices.Serilogging;
 
-public class PreStructuredMessageSerilogLogger
+public class FixedMessageSerilogEmptyLogger
 {
     private readonly ILogger _logger;
 
-    public PreStructuredMessageSerilogLogger(LogLevel logLevel) =>
+    public FixedMessageSerilogEmptyLogger(LogLevel logLevel) =>
         _logger = logLevel switch
         {
             LogLevel.Warning => new LoggerConfiguration()
+                .MinimumLevel.Warning()
                 .CreateLogger(),
             LogLevel.Information => new LoggerConfiguration()
+                .MinimumLevel.Information()
                 .CreateLogger(),
             _ => _logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
                 .CreateLogger()
         };
 
     public void Execute() =>
-        _logger.Information("Random number {NextRandomInteger}", Random.Shared.Next());
+        _logger.Information("Just a plain fixed Message");
 }

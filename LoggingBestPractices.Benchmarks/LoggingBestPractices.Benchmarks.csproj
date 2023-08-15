@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
@@ -10,13 +10,14 @@
         <PackageId>LoggingBestPractices.Benchmarks</PackageId>
         <Authors>LoggingBestPractices.Benchmarks</Authors>
         <Optimize>true</Optimize>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <LangVersion>11</LangVersion>
     </PropertyGroup>
-
 
     <ItemGroup>
         <PackageReference Include="BenchmarkDotNet" Version="0.13.7" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
     </ItemGroup>
-
 
     <ItemGroup>
         <ProjectReference Include="..\LoggingBestPractices.MicrosoftDefaultLogging\LoggingBestPractices.MicrosoftDefaultLogging.csproj" />

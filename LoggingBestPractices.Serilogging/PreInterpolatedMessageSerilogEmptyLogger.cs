@@ -4,18 +4,21 @@ using ILogger = Serilog.ILogger;
 
 namespace LoggingBestPractices.Serilogging;
 
-public class PreInterpolatedMessageSerilogLogger
+public class PreInterpolatedMessageSerilogEmptyLogger
 {
     private readonly ILogger _logger;
 
-    public PreInterpolatedMessageSerilogLogger(LogLevel logLevel) =>
+    public PreInterpolatedMessageSerilogEmptyLogger(LogLevel logLevel) =>
         _logger = logLevel switch
         {
             LogLevel.Warning => new LoggerConfiguration()
+                .MinimumLevel.Warning()
                 .CreateLogger(),
             LogLevel.Information => new LoggerConfiguration()
+                .MinimumLevel.Information()
                 .CreateLogger(),
             _ => _logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
                 .CreateLogger()
         };
 
