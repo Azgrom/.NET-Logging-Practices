@@ -1,3 +1,4 @@
+using Configurations;
 using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
@@ -12,13 +13,13 @@ public sealed class PreInterpolatedMessageMicrosoftConsoleLogger
                 .SetMinimumLevel(logLevel))
         );
 
-    public void Execute() => _logger.LogInformation($"Random number {Random.Shared.Next()}");
+    public void Execute(Func<int> nextRandomNumberGenerator) => _logger.LogInformation($"Random number {nextRandomNumberGenerator}");
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
         var preInterpolatedMessageMicrosoftConsoleLogger = new PreInterpolatedMessageMicrosoftConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < 100_000_000; i++)
-            preInterpolatedMessageMicrosoftConsoleLogger.Execute();
+        for (int i = 0; i < Constants.Iterations; i++)
+            preInterpolatedMessageMicrosoftConsoleLogger.Execute(nextRandomNumberGenerator);
     }
 }

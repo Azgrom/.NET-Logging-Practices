@@ -1,3 +1,4 @@
+using Configurations;
 using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
@@ -12,14 +13,14 @@ public sealed class PreStructuredMessageMicrosoftEmptyLogger
                 .SetMinimumLevel(logLevel))
         );
 
-    public void Execute() =>
-        _logger.LogInformation("Random number {NextRandomInteger}", Random.Shared.Next());
+    public void Execute(Func<int> nextRandomNumberGenerator) =>
+        _logger.LogInformation("Random number {NextRandomInteger}", nextRandomNumberGenerator());
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
         var preStructuredMessageMicrosoftEmptyLogger = new PreStructuredMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < 100_000_000; i++)
-            preStructuredMessageMicrosoftEmptyLogger.Execute();
+        for (int i = 0; i < Constants.Iterations; i++)
+            preStructuredMessageMicrosoftEmptyLogger.Execute(nextRandomNumberGenerator);
     }
 }

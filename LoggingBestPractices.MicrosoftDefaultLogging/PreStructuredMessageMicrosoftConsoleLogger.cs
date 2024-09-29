@@ -1,25 +1,26 @@
+using Configurations;
 using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
 
-public sealed class PreStructuredMessageMicrosoftConsoleLogger
+public sealed class StructuredMessageMicrosoftConsoleLogger
 {
-    private readonly Logger<PreStructuredMessageMicrosoftConsoleLogger> _logger;
+    private readonly Logger<StructuredMessageMicrosoftConsoleLogger> _logger;
 
-    public PreStructuredMessageMicrosoftConsoleLogger(LogLevel logLevel) =>
-        _logger = new Logger<PreStructuredMessageMicrosoftConsoleLogger>(
+    public StructuredMessageMicrosoftConsoleLogger(LogLevel logLevel) =>
+        _logger = new Logger<StructuredMessageMicrosoftConsoleLogger>(
             LoggerFactory.Create(builder => builder.AddConsole()
                 .SetMinimumLevel(logLevel))
         );
 
-    public void Execute() =>
-        _logger.LogInformation("Random number {NextRandomInteger}", Random.Shared.Next());
+    public void Execute(Func<int> nextRandomNumberGenerator) =>
+        _logger.LogInformation("Random number {NextRandomInteger}", nextRandomNumberGenerator());
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
-        var preStructuredMessageMicrosoftConsoleLogger = new PreStructuredMessageMicrosoftConsoleLogger(LogLevel.Warning);
+        var preStructuredMessageMicrosoftConsoleLogger = new StructuredMessageMicrosoftConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < 100_000_000; i++)
-            preStructuredMessageMicrosoftConsoleLogger.Execute();
+        for (int i = 0; i < Constants.Iterations; i++)
+            preStructuredMessageMicrosoftConsoleLogger.Execute(nextRandomNumberGenerator);
     }
 }

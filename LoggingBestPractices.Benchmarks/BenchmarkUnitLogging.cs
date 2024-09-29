@@ -23,6 +23,7 @@ public class BenchmarkUnitLogging
     private const string MicrosoftEmptyLoggerCategory = "Microsoft Empty Logger";
     private const string MicrosoftConsoleLoggerCategory = "Microsoft Console Logger";
     private const string SerilogConsoleLoggerCategory = "Serilog Console Logger";
+    private static readonly Random Random = new();
 
     private FixedMessageMicrosoftConsoleLogger _fixedMessageMicrosoftConsoleLogger;
     private FixedMessageMicrosoftEmptyLogger _fixedMessageMicrosoftEmptyLogger;
@@ -34,7 +35,7 @@ public class BenchmarkUnitLogging
     private PreInterpolatedMessageSerilogConsoleLogger _preInterpolatedMessageSerilogConsoleLogger;
     private PreInterpolatedMessageSerilogEmptyLogger _preInterpolatedMessageSerilogEmptyLogger;
     
-    private PreStructuredMessageMicrosoftConsoleLogger _preStructuredMessageMicrosoftConsoleLogger;
+    private StructuredMessageMicrosoftConsoleLogger _preStructuredMessageMicrosoftConsoleLogger;
     private PreStructuredMessageMicrosoftEmptyLogger _preStructuredMessageMicrosoftEmptyLogger;
     private PreStructuredMessageSerilogConsoleLogger _preStructuredMessageSerilogConsoleLogger;
     private PreStructuredMessageSerilogEmptyLogger _preStructuredMessageSerilogEmptyLogger;
@@ -55,7 +56,7 @@ public class BenchmarkUnitLogging
 
         _fixedMessageMicrosoftConsoleLogger = new FixedMessageMicrosoftConsoleLogger(LogLevel);
         _preInterpolatedMessageMicrosoftConsoleLogger = new PreInterpolatedMessageMicrosoftConsoleLogger(LogLevel);
-        _preStructuredMessageMicrosoftConsoleLogger = new PreStructuredMessageMicrosoftConsoleLogger(LogLevel);
+        _preStructuredMessageMicrosoftConsoleLogger = new StructuredMessageMicrosoftConsoleLogger(LogLevel);
 
         _fixedMessageSerilogConsoleLogger = new FixedMessageSerilogConsoleLogger(LogLevel);
         _preStructuredMessageSerilogConsoleLogger = new PreStructuredMessageSerilogConsoleLogger(LogLevel);
@@ -70,12 +71,12 @@ public class BenchmarkUnitLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
     public void PreInterpolatedMicrosoftEmptyLogger() =>
-        _preInterpolatedMessageMicrosoftEmptyLogger.Execute();
+        _preInterpolatedMessageMicrosoftEmptyLogger.Execute(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
     public void PreStructuredMicrosoftEmptyLogger() =>
-        _preStructuredMessageMicrosoftEmptyLogger.Execute();
+        _preStructuredMessageMicrosoftEmptyLogger.Execute(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(SerilogEmptyLoggerCategory)]
@@ -100,12 +101,12 @@ public class BenchmarkUnitLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
     public void PreInterpolatedMessageMicrosoftConsoleLogger() =>
-        _preInterpolatedMessageMicrosoftConsoleLogger.Execute();
+        _preInterpolatedMessageMicrosoftConsoleLogger.Execute(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
     public void PreStructuredMessageMicrosoftConsoleLogger() =>
-        _preStructuredMessageMicrosoftConsoleLogger.Execute();
+        _preStructuredMessageMicrosoftConsoleLogger.Execute(Random.Next);
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(SerilogConsoleLoggerCategory)]

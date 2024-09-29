@@ -18,6 +18,7 @@ public class BenchmarkLoadLogging
     private const string Console = "Writes to Console";
     private const string Serilog = "Serilog";
     private const string MicrosoftLogger = "Microsoft.Logger";
+    private static readonly Random Random = new();
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(Serilog, EmptySink)]
@@ -57,12 +58,12 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
     public void PreInterpolatedMicrosoftEmptyLogger() =>
-        PreInterpolatedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning();
+        PreInterpolatedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
     public void PreStructuredMicrosoftEmptyLogger() =>
-        PreStructuredMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning();
+        PreStructuredMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]
@@ -72,10 +73,10 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]
     public void PreInterpolatedMicrosoftConsoleLogger() =>
-        PreInterpolatedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();
+        PreInterpolatedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]
     public void PreStructuredMicrosoftConsoleLogger() =>
-        PreStructuredMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();
+        StructuredMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 }
