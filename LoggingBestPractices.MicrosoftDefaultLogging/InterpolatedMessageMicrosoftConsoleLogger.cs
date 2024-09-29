@@ -3,12 +3,12 @@ using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
 
-public sealed class PreInterpolatedMessageMicrosoftConsoleLogger
+public sealed class InterpolatedMessageMicrosoftConsoleLogger
 {
-    private readonly Logger<PreInterpolatedMessageMicrosoftConsoleLogger> _logger;
+    private readonly Logger<InterpolatedMessageMicrosoftConsoleLogger> _logger;
 
-    public PreInterpolatedMessageMicrosoftConsoleLogger(LogLevel logLevel) =>
-        _logger = new Logger<PreInterpolatedMessageMicrosoftConsoleLogger>(
+    public InterpolatedMessageMicrosoftConsoleLogger(LogLevel logLevel) =>
+        _logger = new Logger<InterpolatedMessageMicrosoftConsoleLogger>(
             LoggerFactory.Create(builder => builder.AddConsole()
                 .SetMinimumLevel(logLevel))
         );
@@ -17,7 +17,7 @@ public sealed class PreInterpolatedMessageMicrosoftConsoleLogger
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
-        var preInterpolatedMessageMicrosoftConsoleLogger = new PreInterpolatedMessageMicrosoftConsoleLogger(LogLevel.Warning);
+        var preInterpolatedMessageMicrosoftConsoleLogger = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageMicrosoftConsoleLogger.Execute(nextRandomNumberGenerator);

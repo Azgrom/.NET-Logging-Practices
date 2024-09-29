@@ -3,12 +3,12 @@ using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
 
-public sealed class PreInterpolatedMessageMicrosoftEmptyLogger
+public sealed class InterpolatedMessageMicrosoftEmptyLogger
 {
-    private readonly Logger<PreInterpolatedMessageMicrosoftEmptyLogger> _logger;
+    private readonly Logger<InterpolatedMessageMicrosoftEmptyLogger> _logger;
 
-    public PreInterpolatedMessageMicrosoftEmptyLogger(LogLevel logLevel) =>
-        _logger = new Logger<PreInterpolatedMessageMicrosoftEmptyLogger>(
+    public InterpolatedMessageMicrosoftEmptyLogger(LogLevel logLevel) =>
+        _logger = new Logger<InterpolatedMessageMicrosoftEmptyLogger>(
             LoggerFactory.Create(builder => builder
                 .SetMinimumLevel(logLevel))
         );
@@ -17,7 +17,7 @@ public sealed class PreInterpolatedMessageMicrosoftEmptyLogger
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
-        var preInterpolatedMessageMicrosoftEmptyLogger = new PreInterpolatedMessageMicrosoftEmptyLogger(LogLevel.Warning);
+        var preInterpolatedMessageMicrosoftEmptyLogger = new InterpolatedMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageMicrosoftEmptyLogger.Execute(nextRandomNumberGenerator);

@@ -3,12 +3,12 @@ using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
 
-public sealed class PreStructuredMessageMicrosoftEmptyLogger
+public sealed class StructuredMessageMicrosoftEmptyLogger
 {
-    private readonly Logger<PreStructuredMessageMicrosoftEmptyLogger> _logger;
+    private readonly Logger<StructuredMessageMicrosoftEmptyLogger> _logger;
 
-    public PreStructuredMessageMicrosoftEmptyLogger(LogLevel logLevel) =>
-        _logger = new Logger<PreStructuredMessageMicrosoftEmptyLogger>(
+    public StructuredMessageMicrosoftEmptyLogger(LogLevel logLevel) =>
+        _logger = new Logger<StructuredMessageMicrosoftEmptyLogger>(
             LoggerFactory.Create(builder => builder
                 .SetMinimumLevel(logLevel))
         );
@@ -18,7 +18,7 @@ public sealed class PreStructuredMessageMicrosoftEmptyLogger
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
-        var preStructuredMessageMicrosoftEmptyLogger = new PreStructuredMessageMicrosoftEmptyLogger(LogLevel.Warning);
+        var preStructuredMessageMicrosoftEmptyLogger = new StructuredMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
             preStructuredMessageMicrosoftEmptyLogger.Execute(nextRandomNumberGenerator);

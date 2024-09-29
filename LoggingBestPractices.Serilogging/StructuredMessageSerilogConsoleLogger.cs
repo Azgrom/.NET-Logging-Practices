@@ -1,36 +1,34 @@
 using Microsoft.Extensions.Logging;
 using Serilog;
-using Serilog.Events;
 using ILogger = Serilog.ILogger;
 
 namespace LoggingBestPractices.Serilogging;
 
-public class PreInterpolatedMessageSerilogConsoleLogger
+public class StructuredMessageSerilogConsoleLogger
 {
     private readonly ILogger _logger;
 
-    public PreInterpolatedMessageSerilogConsoleLogger(LogLevel logLevel) =>
+    public StructuredMessageSerilogConsoleLogger(LogLevel logLevel) =>
         _logger = logLevel switch
         {
             LogLevel.Warning => new LoggerConfiguration()
-                .WriteTo.Console(LogEventLevel.Warning)
                 .CreateLogger(),
             LogLevel.Information => new LoggerConfiguration()
-                .WriteTo.Console(LogEventLevel.Information)
                 .CreateLogger(),
             _ => _logger = new LoggerConfiguration()
-                .WriteTo.Console()
                 .CreateLogger()
         };
 
     public void Execute(Func<int> nextRandomNumberGenerator) =>
-        _logger.Information($"Random number {nextRandomNumberGenerator}");
+        _logger.Information("Random number {NextRandomInteger}", nextRandomNumberGenerator);
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
-        var preInterpolatedMessageSerilogConsoleLogger = new PreInterpolatedMessageSerilogConsoleLogger(LogLevel.Warning);
+        var preStructuredMessageSerilogConsoleLogger = new StructuredMessageSerilogConsoleLogger(LogLevel.Warning);
 
         for (int i = 0; i < 100_000_000; i++)
-            preInterpolatedMessageSerilogConsoleLogger.Execute(nextRandomNumberGenerator);
+        {
+            preStructuredMessageSerilogConsoleLogger.Execute(nextRandomNumberGenerator);
+        }
     }
 }

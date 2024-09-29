@@ -27,12 +27,12 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(Serilog, EmptySink)]
     public void PreInterpolatedSerilogEmptyLogger() =>
-        PreInterpolatedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        InterpolatedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(Serilog, EmptySink)]
     public void PreStructuredSerilogEmptyLogger() =>
-        PreStructuredMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        StructuredMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(Serilog, Console)]
@@ -42,12 +42,12 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(Serilog, Console)]
     public void PreInterpolatedSerilogConsoleLogger() =>
-        PreInterpolatedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        InterpolatedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(Serilog, Console)]
     public void PreStructuredSerilogConsoleLogger() =>
-        PreStructuredMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        StructuredMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
@@ -57,12 +57,12 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
     public void PreInterpolatedMicrosoftEmptyLogger() =>
-        PreInterpolatedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        InterpolatedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
     public void PreStructuredMicrosoftEmptyLogger() =>
-        PreStructuredMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        StructuredMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]
@@ -72,7 +72,7 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]
     public void PreInterpolatedMicrosoftConsoleLogger() =>
-        PreInterpolatedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        InterpolatedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]

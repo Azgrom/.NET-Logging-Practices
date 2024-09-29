@@ -4,18 +4,21 @@ using ILogger = Serilog.ILogger;
 
 namespace LoggingBestPractices.Serilogging;
 
-public class PreStructuredMessageSerilogConsoleLogger
+public class StructuredMessageSerilogEmptyLogger
 {
     private readonly ILogger _logger;
 
-    public PreStructuredMessageSerilogConsoleLogger(LogLevel logLevel) =>
+    public StructuredMessageSerilogEmptyLogger(LogLevel logLevel) =>
         _logger = logLevel switch
         {
             LogLevel.Warning => new LoggerConfiguration()
+                .MinimumLevel.Warning()
                 .CreateLogger(),
             LogLevel.Information => new LoggerConfiguration()
+                .MinimumLevel.Information()
                 .CreateLogger(),
             _ => _logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
                 .CreateLogger()
         };
 
@@ -24,11 +27,9 @@ public class PreStructuredMessageSerilogConsoleLogger
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
-        var preStructuredMessageSerilogConsoleLogger = new PreStructuredMessageSerilogConsoleLogger(LogLevel.Warning);
+        var preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel.Warning);
 
         for (int i = 0; i < 100_000_000; i++)
-        {
-            preStructuredMessageSerilogConsoleLogger.Execute(nextRandomNumberGenerator);
-        }
+            preStructuredMessageSerilogEmptyLogger.Execute(nextRandomNumberGenerator);
     }
 }

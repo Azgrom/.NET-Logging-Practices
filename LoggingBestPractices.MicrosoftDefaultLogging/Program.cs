@@ -9,7 +9,7 @@ internal class Program
         const LogLevel logLevel = LogLevel.Warning;
 
         var random = new Random();
-        var preInterpolatedMessageLogger = new PreInterpolatedMessageMicrosoftConsoleLogger(logLevel);
+        var preInterpolatedMessageLogger = new InterpolatedMessageMicrosoftConsoleLogger(logLevel);
 
         for (var i = 0; i < 100_000_000; i++)
             preInterpolatedMessageLogger.Execute(random.Next);

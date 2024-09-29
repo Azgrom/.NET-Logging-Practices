@@ -30,15 +30,15 @@ public class BenchmarkUnitLogging
     private FixedMessageSerilogConsoleLogger _fixedMessageSerilogConsoleLogger;
     private FixedMessageSerilogEmptyLogger _fixedMessageSerilogEmptyLogger;
 
-    private PreInterpolatedMessageMicrosoftConsoleLogger _preInterpolatedMessageMicrosoftConsoleLogger;
-    private PreInterpolatedMessageMicrosoftEmptyLogger _preInterpolatedMessageMicrosoftEmptyLogger;
-    private PreInterpolatedMessageSerilogConsoleLogger _preInterpolatedMessageSerilogConsoleLogger;
-    private PreInterpolatedMessageSerilogEmptyLogger _preInterpolatedMessageSerilogEmptyLogger;
+    private InterpolatedMessageMicrosoftConsoleLogger _preInterpolatedMessageMicrosoftConsoleLogger;
+    private InterpolatedMessageMicrosoftEmptyLogger _preInterpolatedMessageMicrosoftEmptyLogger;
+    private InterpolatedMessageSerilogConsoleLogger _preInterpolatedMessageSerilogConsoleLogger;
+    private InterpolatedMessageSerilogEmptyLogger _preInterpolatedMessageSerilogEmptyLogger;
     
     private StructuredMessageMicrosoftConsoleLogger _preStructuredMessageMicrosoftConsoleLogger;
-    private PreStructuredMessageMicrosoftEmptyLogger _preStructuredMessageMicrosoftEmptyLogger;
-    private PreStructuredMessageSerilogConsoleLogger _preStructuredMessageSerilogConsoleLogger;
-    private PreStructuredMessageSerilogEmptyLogger _preStructuredMessageSerilogEmptyLogger;
+    private StructuredMessageMicrosoftEmptyLogger _preStructuredMessageMicrosoftEmptyLogger;
+    private StructuredMessageSerilogConsoleLogger _preStructuredMessageSerilogConsoleLogger;
+    private StructuredMessageSerilogEmptyLogger _preStructuredMessageSerilogEmptyLogger;
 
     [Params(LogLevel.Information, LogLevel.Warning)]
     public LogLevel LogLevel;
@@ -47,20 +47,20 @@ public class BenchmarkUnitLogging
     public void Setup()
     {
         _fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel);
-        _preInterpolatedMessageMicrosoftEmptyLogger = new PreInterpolatedMessageMicrosoftEmptyLogger(LogLevel);
-        _preStructuredMessageMicrosoftEmptyLogger = new PreStructuredMessageMicrosoftEmptyLogger(LogLevel);
+        _preInterpolatedMessageMicrosoftEmptyLogger = new InterpolatedMessageMicrosoftEmptyLogger(LogLevel);
+        _preStructuredMessageMicrosoftEmptyLogger = new StructuredMessageMicrosoftEmptyLogger(LogLevel);
 
         _fixedMessageSerilogEmptyLogger = new FixedMessageSerilogEmptyLogger(LogLevel);
-        _preInterpolatedMessageSerilogEmptyLogger = new PreInterpolatedMessageSerilogEmptyLogger(LogLevel);
-        _preStructuredMessageSerilogEmptyLogger = new PreStructuredMessageSerilogEmptyLogger(LogLevel);
+        _preInterpolatedMessageSerilogEmptyLogger = new InterpolatedMessageSerilogEmptyLogger(LogLevel);
+        _preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel);
 
         _fixedMessageMicrosoftConsoleLogger = new FixedMessageMicrosoftConsoleLogger(LogLevel);
-        _preInterpolatedMessageMicrosoftConsoleLogger = new PreInterpolatedMessageMicrosoftConsoleLogger(LogLevel);
+        _preInterpolatedMessageMicrosoftConsoleLogger = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel);
         _preStructuredMessageMicrosoftConsoleLogger = new StructuredMessageMicrosoftConsoleLogger(LogLevel);
 
         _fixedMessageSerilogConsoleLogger = new FixedMessageSerilogConsoleLogger(LogLevel);
-        _preStructuredMessageSerilogConsoleLogger = new PreStructuredMessageSerilogConsoleLogger(LogLevel);
-        _preInterpolatedMessageSerilogConsoleLogger = new PreInterpolatedMessageSerilogConsoleLogger(LogLevel);
+        _preStructuredMessageSerilogConsoleLogger = new StructuredMessageSerilogConsoleLogger(LogLevel);
+        _preInterpolatedMessageSerilogConsoleLogger = new InterpolatedMessageSerilogConsoleLogger(LogLevel);
     }
 
     [Benchmark(Baseline = true)]
