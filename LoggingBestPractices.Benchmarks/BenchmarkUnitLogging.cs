@@ -4,6 +4,8 @@ using BenchmarkDotNet.Jobs;
 using LoggingBestPractices.DefaultLogging;
 using LoggingBestPractices.Serilogging;
 using Microsoft.Extensions.Logging;
+// ReSharper disable UnassignedField.Global
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace LoggingBestPractices.Benchmarks;
 
@@ -38,26 +40,7 @@ public class BenchmarkUnitLogging
     private PreStructuredMessageSerilogEmptyLogger _preStructuredMessageSerilogEmptyLogger;
 
     [Params(LogLevel.Information, LogLevel.Warning)]
-    // ReSharper disable once FieldCanBeMadeReadOnly.Global
-    // ReSharper disable once MemberCanBePrivate.Global
     public LogLevel LogLevel;
-
-    public BenchmarkUnitLogging(FixedMessageMicrosoftConsoleLogger fixedMessageMicrosoftConsoleLogger, FixedMessageMicrosoftEmptyLogger fixedMessageMicrosoftEmptyLogger, FixedMessageSerilogConsoleLogger fixedMessageSerilogConsoleLogger, FixedMessageSerilogEmptyLogger fixedMessageSerilogEmptyLogger, PreInterpolatedMessageMicrosoftConsoleLogger preInterpolatedMessageMicrosoftConsoleLogger, PreInterpolatedMessageMicrosoftEmptyLogger preInterpolatedMessageMicrosoftEmptyLogger, PreInterpolatedMessageSerilogConsoleLogger preInterpolatedMessageSerilogConsoleLogger, PreInterpolatedMessageSerilogEmptyLogger preInterpolatedMessageSerilogEmptyLogger, PreStructuredMessageMicrosoftConsoleLogger preStructuredMessageMicrosoftConsoleLogger, PreStructuredMessageMicrosoftEmptyLogger preStructuredMessageMicrosoftEmptyLogger, PreStructuredMessageSerilogConsoleLogger preStructuredMessageSerilogConsoleLogger, PreStructuredMessageSerilogEmptyLogger preStructuredMessageSerilogEmptyLogger, LogLevel logLevel)
-    {
-        _fixedMessageMicrosoftConsoleLogger = fixedMessageMicrosoftConsoleLogger;
-        _fixedMessageMicrosoftEmptyLogger = fixedMessageMicrosoftEmptyLogger;
-        _fixedMessageSerilogConsoleLogger = fixedMessageSerilogConsoleLogger;
-        _fixedMessageSerilogEmptyLogger = fixedMessageSerilogEmptyLogger;
-        _preInterpolatedMessageMicrosoftConsoleLogger = preInterpolatedMessageMicrosoftConsoleLogger;
-        _preInterpolatedMessageMicrosoftEmptyLogger = preInterpolatedMessageMicrosoftEmptyLogger;
-        _preInterpolatedMessageSerilogConsoleLogger = preInterpolatedMessageSerilogConsoleLogger;
-        _preInterpolatedMessageSerilogEmptyLogger = preInterpolatedMessageSerilogEmptyLogger;
-        _preStructuredMessageMicrosoftConsoleLogger = preStructuredMessageMicrosoftConsoleLogger;
-        _preStructuredMessageMicrosoftEmptyLogger = preStructuredMessageMicrosoftEmptyLogger;
-        _preStructuredMessageSerilogConsoleLogger = preStructuredMessageSerilogConsoleLogger;
-        _preStructuredMessageSerilogEmptyLogger = preStructuredMessageSerilogEmptyLogger;
-        LogLevel = logLevel;
-    }
 
     [GlobalSetup]
     public void Setup()
