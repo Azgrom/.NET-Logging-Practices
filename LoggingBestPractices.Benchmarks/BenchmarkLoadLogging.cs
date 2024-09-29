@@ -11,7 +11,7 @@ namespace LoggingBestPractices.Benchmarks;
 [CategoriesColumn]
 [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Monitoring, RuntimeMoniker.Net70)]
+[SimpleJob(RunStrategy.Monitoring, RuntimeMoniker.Net80)]
 public class BenchmarkLoadLogging
 {
     private const string EmptySink = "Empty sink";

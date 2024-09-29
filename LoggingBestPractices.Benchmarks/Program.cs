@@ -1,4 +1,7 @@
 using BenchmarkDotNet.Running;
+using LoggingBestPractices.Benchmarks;
 
-BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly)
-    .Run(args);
+var summary = BenchmarkRunner.Run<BenchmarkLoadLogging>();
+var run = BenchmarkRunner.Run<BenchmarkUnitLogging>();
+
+// summary.

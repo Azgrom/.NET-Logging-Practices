@@ -8,7 +8,8 @@ public sealed class PreStructuredMessageMicrosoftEmptyLogger
 
     public PreStructuredMessageMicrosoftEmptyLogger(LogLevel logLevel) =>
         _logger = new Logger<PreStructuredMessageMicrosoftEmptyLogger>(
-            LoggerFactory.Create(builder => builder.SetMinimumLevel(logLevel))
+            LoggerFactory.Create(builder => builder
+                .SetMinimumLevel(logLevel))
         );
 
     public void Execute() =>

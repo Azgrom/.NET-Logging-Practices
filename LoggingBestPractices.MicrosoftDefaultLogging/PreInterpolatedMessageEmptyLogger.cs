@@ -8,7 +8,8 @@ public sealed class PreInterpolatedMessageMicrosoftEmptyLogger
 
     public PreInterpolatedMessageMicrosoftEmptyLogger(LogLevel logLevel) =>
         _logger = new Logger<PreInterpolatedMessageMicrosoftEmptyLogger>(
-            LoggerFactory.Create(builder => builder.SetMinimumLevel(logLevel))
+            LoggerFactory.Create(builder => builder
+                .SetMinimumLevel(logLevel))
         );
 
     public void Execute() => _logger.LogInformation($"Random number {Random.Shared.Next()}");
