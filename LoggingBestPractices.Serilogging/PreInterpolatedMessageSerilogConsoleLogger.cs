@@ -23,14 +23,14 @@ public class PreInterpolatedMessageSerilogConsoleLogger
                 .CreateLogger()
         };
 
-    public void Execute() =>
-        _logger.Information($"Random number {Random.Shared.Next()}");
+    public void Execute(Func<int> nextRandomNumberGenerator) =>
+        _logger.Information($"Random number {nextRandomNumberGenerator}");
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
         var preInterpolatedMessageSerilogConsoleLogger = new PreInterpolatedMessageSerilogConsoleLogger(LogLevel.Warning);
 
         for (int i = 0; i < 100_000_000; i++)
-            preInterpolatedMessageSerilogConsoleLogger.Execute();
+            preInterpolatedMessageSerilogConsoleLogger.Execute(nextRandomNumberGenerator);
     }
 }

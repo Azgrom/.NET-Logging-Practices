@@ -86,12 +86,12 @@ public class BenchmarkUnitLogging
     [Benchmark]
     [BenchmarkCategory(SerilogEmptyLoggerCategory)]
     public void PreInterpolatedSerilogEmptyLogger() =>
-        _preInterpolatedMessageSerilogEmptyLogger.Execute();
+        _preInterpolatedMessageSerilogEmptyLogger.Execute(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(SerilogEmptyLoggerCategory)]
     public void PreStructuredSerilogEmptyLogger() =>
-        _preStructuredMessageSerilogEmptyLogger.Execute();
+        _preStructuredMessageSerilogEmptyLogger.Execute(Random.Next);
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
@@ -116,10 +116,10 @@ public class BenchmarkUnitLogging
     [Benchmark]
     [BenchmarkCategory(SerilogConsoleLoggerCategory)]
     public void PreStructuredMessageSerilogConsoleLogger() =>
-        _preStructuredMessageSerilogConsoleLogger.Execute();
+        _preStructuredMessageSerilogConsoleLogger.Execute(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(SerilogConsoleLoggerCategory)]
     public void PreInterpolatedMessageSerilogConsoleLogger() =>
-        _preInterpolatedMessageSerilogConsoleLogger.Execute();
+        _preInterpolatedMessageSerilogConsoleLogger.Execute(Random.Next);
 }

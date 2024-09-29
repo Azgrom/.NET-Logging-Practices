@@ -4,7 +4,6 @@ using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Jobs;
 using LoggingBestPractices.DefaultLogging;
 using LoggingBestPractices.Serilogging;
-using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.Benchmarks;
 
@@ -28,12 +27,12 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(Serilog, EmptySink)]
     public void PreInterpolatedSerilogEmptyLogger() =>
-        PreInterpolatedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning();
+        PreInterpolatedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(Serilog, EmptySink)]
     public void PreStructuredSerilogEmptyLogger() =>
-        PreStructuredMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning();
+        PreStructuredMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(Serilog, Console)]
@@ -43,12 +42,12 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(Serilog, Console)]
     public void PreInterpolatedSerilogConsoleLogger() =>
-        PreInterpolatedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning();
+        PreInterpolatedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(Serilog, Console)]
     public void PreStructuredSerilogConsoleLogger() =>
-        PreStructuredMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning();
+        PreStructuredMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]

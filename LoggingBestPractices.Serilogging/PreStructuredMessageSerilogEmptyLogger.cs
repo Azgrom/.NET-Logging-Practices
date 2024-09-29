@@ -22,14 +22,14 @@ public class PreStructuredMessageSerilogEmptyLogger
                 .CreateLogger()
         };
 
-    public void Execute() =>
-        _logger.Information("Random number {NextRandomInteger}", Random.Shared.Next());
+    public void Execute(Func<int> nextRandomNumberGenerator) =>
+        _logger.Information("Random number {NextRandomInteger}", nextRandomNumberGenerator);
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
         var preStructuredMessageSerilogEmptyLogger = new PreStructuredMessageSerilogEmptyLogger(LogLevel.Warning);
 
         for (int i = 0; i < 100_000_000; i++)
-            preStructuredMessageSerilogEmptyLogger.Execute();
+            preStructuredMessageSerilogEmptyLogger.Execute(nextRandomNumberGenerator);
     }
 }
