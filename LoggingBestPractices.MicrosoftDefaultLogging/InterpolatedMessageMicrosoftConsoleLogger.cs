@@ -13,7 +13,7 @@ public sealed class InterpolatedMessageMicrosoftConsoleLogger
                 .SetMinimumLevel(logLevel))
         );
 
-    public void Execute(Func<int> nextRandomNumberGenerator) => _logger.LogInformation($"Random number {nextRandomNumberGenerator}");
+    public void Execute(Func<int> nextRandomNumberGenerator) => _logger.LogInformation($"Random number {nextRandomNumberGenerator()}");
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {

@@ -1,3 +1,4 @@
+using Configurations;
 using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
@@ -18,7 +19,7 @@ public sealed class FixedMessageMicrosoftEmptyLogger
     {
         var fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < 100_000_000; i++)
+        for (int i = 0; i < Constants.Iterations; i++)
             fixedMessageMicrosoftEmptyLogger.Execute();
     }
 }

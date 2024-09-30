@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Configurations;
+using Serilog;
 
 namespace LoggingBestPractices.Serilogging;
 
@@ -11,7 +12,7 @@ internal class Program
             .CreateLogger();
 
         var random = new Random();
-        for (var i = 0; i < 100_000_000; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             logger.Information("Random number {RandomNumber}", random.Next());
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Configurations;
+using Microsoft.Extensions.Logging;
 
 namespace LoggingBestPractices.DefaultLogging;
 
@@ -11,7 +12,7 @@ internal class Program
         var random = new Random();
         var preInterpolatedMessageLogger = new InterpolatedMessageMicrosoftConsoleLogger(logLevel);
 
-        for (var i = 0; i < 100_000_000; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageLogger.Execute(random.Next);
     }
 }

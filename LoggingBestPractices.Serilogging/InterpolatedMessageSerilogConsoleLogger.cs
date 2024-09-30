@@ -1,3 +1,4 @@
+using Configurations;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
@@ -24,13 +25,13 @@ public class InterpolatedMessageSerilogConsoleLogger
         };
 
     public void Execute(Func<int> nextRandomNumberGenerator) =>
-        _logger.Information($"Random number {nextRandomNumberGenerator}");
+        _logger.Information($"Random number {nextRandomNumberGenerator()}");
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
         var preInterpolatedMessageSerilogConsoleLogger = new InterpolatedMessageSerilogConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < 100_000_000; i++)
+        for (int i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageSerilogConsoleLogger.Execute(nextRandomNumberGenerator);
     }
 }

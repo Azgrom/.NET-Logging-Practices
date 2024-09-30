@@ -1,3 +1,4 @@
+using Configurations;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
@@ -30,7 +31,7 @@ public class FixedMessageSerilogConsoleLogger
     {
         var fixedMessageSerilogConsoleLogger = new FixedMessageSerilogConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < 100_000_000; i++)
+        for (int i = 0; i < Constants.Iterations; i++)
             fixedMessageSerilogConsoleLogger.Execute();
     }
 }
