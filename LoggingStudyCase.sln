@@ -8,9 +8,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingBestPractices.Serilo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configurations", "Configurations\Configurations.csproj", "{8DA5D285-BDBB-4EA0-8743-A4F56A6B4B2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageEmptyMicrosoftLogger", "ExecuteFixedMessageEmptyMicrosoftLogger\ExecuteFixedMessageEmptyMicrosoftLogger.csproj", "{41FC2971-6349-4CBB-928A-810D0C985187}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicrosoftLoggerConsoleApps", "MicrosoftLoggerConsoleApps", "{0659D4C5-0A42-46CA-A30C-ABACA7B610AC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicrosoftLogger", "MicrosoftLogger", "{0659D4C5-0A42-46CA-A30C-ABACA7B610AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageInformationConsoleMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ExecuteFixedMessageInformationConsoleMicrosoftLogger\ExecuteFixedMessageInformationConsoleMicrosoftLogger.csproj", "{41D80E96-E2C6-4073-B543-7948C7C3AEFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageWarningEmptyMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ExecuteFixedMessageWarningEmptyMicrosoftLogger\ExecuteFixedMessageWarningEmptyMicrosoftLogger.csproj", "{BEC54776-19E0-405B-968D-BC59542AD201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,12 +36,17 @@ Global
 		{8DA5D285-BDBB-4EA0-8743-A4F56A6B4B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DA5D285-BDBB-4EA0-8743-A4F56A6B4B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DA5D285-BDBB-4EA0-8743-A4F56A6B4B2F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{41FC2971-6349-4CBB-928A-810D0C985187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41FC2971-6349-4CBB-928A-810D0C985187}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41FC2971-6349-4CBB-928A-810D0C985187}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41FC2971-6349-4CBB-928A-810D0C985187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41D80E96-E2C6-4073-B543-7948C7C3AEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D80E96-E2C6-4073-B543-7948C7C3AEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41D80E96-E2C6-4073-B543-7948C7C3AEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41D80E96-E2C6-4073-B543-7948C7C3AEFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC54776-19E0-405B-968D-BC59542AD201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC54776-19E0-405B-968D-BC59542AD201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC54776-19E0-405B-968D-BC59542AD201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC54776-19E0-405B-968D-BC59542AD201}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{41FC2971-6349-4CBB-928A-810D0C985187} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
+		{41D80E96-E2C6-4073-B543-7948C7C3AEFF} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
+		{BEC54776-19E0-405B-968D-BC59542AD201} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,3 @@
+﻿using LoggingBestPractices.DefaultLogging;
+
+FixedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Information();
