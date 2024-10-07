@@ -47,79 +47,78 @@ public class BenchmarkUnitLogging
     public void Setup()
     {
         _fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel);
-        _preInterpolatedMessageMicrosoftEmptyLogger = new InterpolatedMessageMicrosoftEmptyLogger(LogLevel);
-        _preStructuredMessageMicrosoftEmptyLogger = new StructuredMessageMicrosoftEmptyLogger(LogLevel);
-
         _fixedMessageSerilogEmptyLogger = new FixedMessageSerilogEmptyLogger(LogLevel);
-        _preInterpolatedMessageSerilogEmptyLogger = new InterpolatedMessageSerilogEmptyLogger(LogLevel);
-        _preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel);
-
         _fixedMessageMicrosoftConsoleLogger = new FixedMessageMicrosoftConsoleLogger(LogLevel);
-        _preInterpolatedMessageMicrosoftConsoleLogger = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel);
-        _preStructuredMessageMicrosoftConsoleLogger = new StructuredMessageMicrosoftConsoleLogger(LogLevel);
-
         _fixedMessageSerilogConsoleLogger = new FixedMessageSerilogConsoleLogger(LogLevel);
-        _preStructuredMessageSerilogConsoleLogger = new StructuredMessageSerilogConsoleLogger(LogLevel);
+
+        _preInterpolatedMessageMicrosoftEmptyLogger = new InterpolatedMessageMicrosoftEmptyLogger(LogLevel);
+        _preInterpolatedMessageSerilogEmptyLogger = new InterpolatedMessageSerilogEmptyLogger(LogLevel);
+        _preInterpolatedMessageMicrosoftConsoleLogger = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel);
         _preInterpolatedMessageSerilogConsoleLogger = new InterpolatedMessageSerilogConsoleLogger(LogLevel);
+
+        _preStructuredMessageMicrosoftEmptyLogger = new StructuredMessageMicrosoftEmptyLogger(LogLevel);
+        _preStructuredMessageSerilogConsoleLogger = new StructuredMessageSerilogConsoleLogger(LogLevel);
+        _preStructuredMessageMicrosoftConsoleLogger = new StructuredMessageMicrosoftConsoleLogger(LogLevel);
+        _preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel);
     }
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
     public void FixedMessageMicrosoftEmptyLogger() =>
-        _fixedMessageMicrosoftEmptyLogger.Execute();
-
-    [Benchmark]
-    [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
-    public void PreInterpolatedMicrosoftEmptyLogger() =>
-        _preInterpolatedMessageMicrosoftEmptyLogger.Execute(Random.Next);
-
-    [Benchmark]
-    [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
-    public void PreStructuredMicrosoftEmptyLogger() =>
-        _preStructuredMessageMicrosoftEmptyLogger.Execute(Random.Next);
+        _fixedMessageMicrosoftEmptyLogger.ExecuteInformation();
 
     [Benchmark]
     [BenchmarkCategory(SerilogEmptyLoggerCategory)]
     public void FixedMessageSerilogEmptyLogger() =>
-        _fixedMessageSerilogEmptyLogger.Execute();
-
-    [Benchmark]
-    [BenchmarkCategory(SerilogEmptyLoggerCategory)]
-    public void PreInterpolatedSerilogEmptyLogger() =>
-        _preInterpolatedMessageSerilogEmptyLogger.Execute(Random.Next);
-
-    [Benchmark]
-    [BenchmarkCategory(SerilogEmptyLoggerCategory)]
-    public void PreStructuredSerilogEmptyLogger() =>
-        _preStructuredMessageSerilogEmptyLogger.Execute(Random.Next);
+        _fixedMessageSerilogEmptyLogger.ExecuteInformation();
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
     public void FixedMessageMicrosoftConsoleLogger() =>
-        _fixedMessageMicrosoftConsoleLogger.Execute();
-
-    [Benchmark]
-    [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
-    public void PreInterpolatedMessageMicrosoftConsoleLogger() =>
-        _preInterpolatedMessageMicrosoftConsoleLogger.Execute(Random.Next);
-
-    [Benchmark]
-    [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
-    public void PreStructuredMessageMicrosoftConsoleLogger() =>
-        _preStructuredMessageMicrosoftConsoleLogger.Execute(Random.Next);
+        _fixedMessageMicrosoftConsoleLogger.ExecuteInformation();
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(SerilogConsoleLoggerCategory)]
     public void FixedMessageSerilogConsoleLogger() =>
-        _fixedMessageSerilogConsoleLogger.Execute();
+        _fixedMessageSerilogConsoleLogger.ExecuteInformation();
 
     [Benchmark]
-    [BenchmarkCategory(SerilogConsoleLoggerCategory)]
-    public void PreStructuredMessageSerilogConsoleLogger() =>
-        _preStructuredMessageSerilogConsoleLogger.Execute(Random.Next);
+    [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
+    public void PreInterpolatedMicrosoftEmptyLogger() =>
+        _preInterpolatedMessageMicrosoftEmptyLogger.ExecuteInformation(Random.Next);
+
+    [Benchmark]
+    [BenchmarkCategory(SerilogEmptyLoggerCategory)]
+    public void PreInterpolatedSerilogEmptyLogger() =>
+        _preInterpolatedMessageSerilogEmptyLogger.ExecuteInformation(Random.Next);
+
+    [Benchmark]
+    [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
+    public void PreInterpolatedMessageMicrosoftConsoleLogger() =>
+        _preInterpolatedMessageMicrosoftConsoleLogger.ExecuteInformation(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(SerilogConsoleLoggerCategory)]
     public void PreInterpolatedMessageSerilogConsoleLogger() =>
-        _preInterpolatedMessageSerilogConsoleLogger.Execute(Random.Next);
+        _preInterpolatedMessageSerilogConsoleLogger.ExecuteInformation(Random.Next);
+
+    [Benchmark]
+    [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
+    public void PreStructuredMicrosoftEmptyLogger() =>
+        _preStructuredMessageMicrosoftEmptyLogger.ExecuteInformation(Random.Next);
+
+    [Benchmark]
+    [BenchmarkCategory(SerilogEmptyLoggerCategory)]
+    public void PreStructuredSerilogEmptyLogger() =>
+        _preStructuredMessageSerilogEmptyLogger.ExecuteInformation(Random.Next);
+
+    [Benchmark]
+    [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
+    public void PreStructuredMessageMicrosoftConsoleLogger() =>
+        _preStructuredMessageMicrosoftConsoleLogger.ExecuteInformation(Random.Next);
+
+    [Benchmark]
+    [BenchmarkCategory(SerilogConsoleLoggerCategory)]
+    public void PreStructuredMessageSerilogConsoleLogger() =>
+        _preStructuredMessageSerilogConsoleLogger.ExecuteInformation(Random.Next);
 }
