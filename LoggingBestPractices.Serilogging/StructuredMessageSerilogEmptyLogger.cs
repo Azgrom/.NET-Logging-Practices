@@ -23,7 +23,7 @@ public class StructuredMessageSerilogEmptyLogger
                 .CreateLogger()
         };
 
-    public void Execute(Func<int> nextRandomNumberGenerator) =>
+    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
         _logger.Information("Random number {NextRandomInteger}", nextRandomNumberGenerator());
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
@@ -31,6 +31,6 @@ public class StructuredMessageSerilogEmptyLogger
         var preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
-            preStructuredMessageSerilogEmptyLogger.Execute(nextRandomNumberGenerator);
+            preStructuredMessageSerilogEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

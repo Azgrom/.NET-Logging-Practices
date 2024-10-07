@@ -13,13 +13,13 @@ public sealed class FixedMessageMicrosoftEmptyLogger
                 .SetMinimumLevel(logLevel))
         );
 
-    public void Execute() => _logger.LogInformation("Just a plain fixed Message");
+    public void ExecuteInformation() => _logger.LogInformation("Just a plain fixed Message");
 
     public static void IterateExecution100MillionTimes_Warning()
     {
         var fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
-            fixedMessageMicrosoftEmptyLogger.Execute();
+            fixedMessageMicrosoftEmptyLogger.ExecuteInformation();
     }
 }

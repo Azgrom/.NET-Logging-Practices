@@ -13,7 +13,7 @@ public sealed class StructuredMessageMicrosoftConsoleLogger
                 .SetMinimumLevel(logLevel))
         );
 
-    public void Execute(Func<int> nextRandomNumberGenerator) =>
+    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
         _logger.LogInformation("Random number {NextRandomInteger}", nextRandomNumberGenerator());
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
@@ -21,6 +21,6 @@ public sealed class StructuredMessageMicrosoftConsoleLogger
         var preStructuredMessageMicrosoftConsoleLogger = new StructuredMessageMicrosoftConsoleLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
-            preStructuredMessageMicrosoftConsoleLogger.Execute(nextRandomNumberGenerator);
+            preStructuredMessageMicrosoftConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

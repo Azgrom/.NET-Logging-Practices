@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using ILogger = Serilog.ILogger;
+// ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
 namespace LoggingBestPractices.Serilogging;
 
@@ -24,7 +25,7 @@ public class InterpolatedMessageSerilogConsoleLogger
                 .CreateLogger()
         };
 
-    public void Execute(Func<int> nextRandomNumberGenerator) =>
+    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
         _logger.Information($"Random number {nextRandomNumberGenerator()}");
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
@@ -32,6 +33,6 @@ public class InterpolatedMessageSerilogConsoleLogger
         var preInterpolatedMessageSerilogConsoleLogger = new InterpolatedMessageSerilogConsoleLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
-            preInterpolatedMessageSerilogConsoleLogger.Execute(nextRandomNumberGenerator);
+            preInterpolatedMessageSerilogConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

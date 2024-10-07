@@ -1,5 +1,6 @@
 using Configurations;
 using Microsoft.Extensions.Logging;
+// ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
 namespace LoggingBestPractices.DefaultLogging;
 
@@ -13,13 +14,13 @@ public sealed class InterpolatedMessageMicrosoftConsoleLogger
                 .SetMinimumLevel(logLevel))
         );
 
-    public void Execute(Func<int> nextRandomNumberGenerator) => _logger.LogInformation($"Random number {nextRandomNumberGenerator()}");
+    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) => _logger.LogInformation($"Random number {nextRandomNumberGenerator()}");
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
         var preInterpolatedMessageMicrosoftConsoleLogger = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
-            preInterpolatedMessageMicrosoftConsoleLogger.Execute(nextRandomNumberGenerator);
+            preInterpolatedMessageMicrosoftConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

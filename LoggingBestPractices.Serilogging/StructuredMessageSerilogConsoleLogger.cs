@@ -20,7 +20,7 @@ public class StructuredMessageSerilogConsoleLogger
                 .CreateLogger()
         };
 
-    public void Execute(Func<int> nextRandomNumberGenerator) =>
+    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
         _logger.Information("Random number {NextRandomInteger}", nextRandomNumberGenerator());
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
@@ -29,7 +29,7 @@ public class StructuredMessageSerilogConsoleLogger
 
         for (int i = 0; i < Constants.Iterations; i++)
         {
-            preStructuredMessageSerilogConsoleLogger.Execute(nextRandomNumberGenerator);
+            preStructuredMessageSerilogConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
         }
     }
 }

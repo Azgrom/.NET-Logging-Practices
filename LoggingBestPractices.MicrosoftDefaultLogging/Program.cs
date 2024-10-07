@@ -13,7 +13,7 @@ internal class Program
         var preInterpolatedMessageLogger = new InterpolatedMessageMicrosoftConsoleLogger(logLevel);
 
         for (var i = 0; i < Constants.Iterations; i++)
-            preInterpolatedMessageLogger.Execute(random.Next);
+            preInterpolatedMessageLogger.ExecuteInformation(random.Next);
     }
 }
 // logger.LogInformation("Random number {RandomNumber}", Random.Shared.Next());
