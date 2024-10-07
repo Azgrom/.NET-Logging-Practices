@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageInformat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageWarningEmptyMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ExecuteFixedMessageWarningEmptyMicrosoftLogger\ExecuteFixedMessageWarningEmptyMicrosoftLogger.csproj", "{BEC54776-19E0-405B-968D-BC59542AD201}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageInformationEmptyMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ExecuteFixedMessageInformationEmptyMicrosoftLogger\ExecuteFixedMessageInformationEmptyMicrosoftLogger.csproj", "{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,9 +46,14 @@ Global
 		{BEC54776-19E0-405B-968D-BC59542AD201}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEC54776-19E0-405B-968D-BC59542AD201}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEC54776-19E0-405B-968D-BC59542AD201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{41D80E96-E2C6-4073-B543-7948C7C3AEFF} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
 		{BEC54776-19E0-405B-968D-BC59542AD201} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
+		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
 	EndGlobalSection
 EndGlobal
