@@ -3,15 +3,14 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using ILogger = Serilog.ILogger;
-// ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
-namespace LoggingBestPractices.Serilogging;
+namespace Serilog.Logs;
 
-public class InterpolatedMessageSerilogConsoleLogger
+public class FixedMessageSerilogConsoleLogger
 {
     private readonly ILogger _logger;
 
-    public InterpolatedMessageSerilogConsoleLogger(LogLevel logLevel) =>
+    public FixedMessageSerilogConsoleLogger(LogLevel logLevel) =>
         _logger = logLevel switch
         {
             LogLevel.Warning => new LoggerConfiguration()
@@ -25,14 +24,14 @@ public class InterpolatedMessageSerilogConsoleLogger
                 .CreateLogger()
         };
 
-    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
-        _logger.Information($"Random number {nextRandomNumberGenerator()}");
+    public void ExecuteInformation() =>
+        _logger.Information("Just a plain fixed Message");
 
-    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
+    public static void IterateExecution100MillionTimes_Warning()
     {
-        var preInterpolatedMessageSerilogConsoleLogger = new InterpolatedMessageSerilogConsoleLogger(LogLevel.Warning);
+        var fixedMessageSerilogConsoleLogger = new FixedMessageSerilogConsoleLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
-            preInterpolatedMessageSerilogConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
+            fixedMessageSerilogConsoleLogger.ExecuteInformation();
     }
 }

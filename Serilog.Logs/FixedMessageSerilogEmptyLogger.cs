@@ -3,13 +3,13 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using ILogger = Serilog.ILogger;
 
-namespace LoggingBestPractices.Serilogging;
+namespace Serilog.Logs;
 
-public class StructuredMessageSerilogEmptyLogger
+public class FixedMessageSerilogEmptyLogger
 {
     private readonly ILogger _logger;
 
-    public StructuredMessageSerilogEmptyLogger(LogLevel logLevel) =>
+    public FixedMessageSerilogEmptyLogger(LogLevel logLevel) =>
         _logger = logLevel switch
         {
             LogLevel.Warning => new LoggerConfiguration()
@@ -23,14 +23,14 @@ public class StructuredMessageSerilogEmptyLogger
                 .CreateLogger()
         };
 
-    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
-        _logger.Information("Random number {NextRandomInteger}", nextRandomNumberGenerator());
+    public void ExecuteInformation() =>
+        _logger.Information("Just a plain fixed Message");
 
-    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
+    public static void IterateExecution100MillionTimes_Warning()
     {
-        var preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel.Warning);
+        var fixedMessageSerilogEmptyLogger = new FixedMessageSerilogEmptyLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
-            preStructuredMessageSerilogEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
+            fixedMessageSerilogEmptyLogger.ExecuteInformation();
     }
 }

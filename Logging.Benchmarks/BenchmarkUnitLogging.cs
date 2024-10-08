@@ -2,7 +2,7 @@
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
 using Microsoft.Logs;
-using LoggingBestPractices.Serilogging;
+using Serilog.Logs;
 using Microsoft.Extensions.Logging;
 // ReSharper disable UnassignedField.Global
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.

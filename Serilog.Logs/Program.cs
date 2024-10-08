@@ -1,7 +1,7 @@
 ﻿using Configurations;
 using Serilog;
 
-namespace LoggingBestPractices.Serilogging;
+namespace Serilog.Logs;
 
 internal class Program
 {

@@ -3,7 +3,7 @@ using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Jobs;
 using Microsoft.Logs;
-using LoggingBestPractices.Serilogging;
+using Serilog.Logs;
 
 namespace Logging.Benchmarks;
 
@@ -13,69 +13,69 @@ namespace Logging.Benchmarks;
 [SimpleJob(RunStrategy.Monitoring, RuntimeMoniker.Net80)]
 public class BenchmarkLoadLogging
 {
-    private const string EmptySink = "Empty sink";
-    private const string Console = "Writes to Console";
-    private const string Serilog = "Serilog";
-    private const string MicrosoftLogger = "Microsoft.Logger";
+    private const string EmptySinkCategory = "Empty sink";
+    private const string ConsoleCategory = "Writes to Console";
+    private const string SerilogCategory = "Serilog";
+    private const string MicrosoftLoggerCategory = "Microsoft.Logger";
     private static readonly Random Random = new();
 
     [Benchmark(Baseline = true)]
-    [BenchmarkCategory(Serilog, EmptySink)]
+    [BenchmarkCategory(SerilogCategory, EmptySinkCategory)]
     public void FixedMessageSerilogEmptyLogger() =>
-        LoggingBestPractices.Serilogging.FixedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning();
+        Serilog.Logs.FixedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
-    [BenchmarkCategory(Serilog, EmptySink)]
+    [BenchmarkCategory(SerilogCategory, EmptySinkCategory)]
     public void PreInterpolatedSerilogEmptyLogger() =>
         InterpolatedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
-    [BenchmarkCategory(Serilog, EmptySink)]
+    [BenchmarkCategory(SerilogCategory, EmptySinkCategory)]
     public void PreStructuredSerilogEmptyLogger() =>
         StructuredMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark(Baseline = true)]
-    [BenchmarkCategory(Serilog, Console)]
+    [BenchmarkCategory(SerilogCategory, ConsoleCategory)]
     public void FixedMessageSerilogConsoleLogger() =>
-        LoggingBestPractices.Serilogging.FixedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning();
+        Serilog.Logs.FixedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
-    [BenchmarkCategory(Serilog, Console)]
+    [BenchmarkCategory(SerilogCategory, ConsoleCategory)]
     public void PreInterpolatedSerilogConsoleLogger() =>
         InterpolatedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
-    [BenchmarkCategory(Serilog, Console)]
+    [BenchmarkCategory(SerilogCategory, ConsoleCategory)]
     public void PreStructuredSerilogConsoleLogger() =>
         StructuredMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
-    [BenchmarkCategory(MicrosoftLogger, EmptySink)]
+    [BenchmarkCategory(MicrosoftLoggerCategory, EmptySinkCategory)]
     public void FixedMessageMicrosoftEmptyLogger() =>
         Microsoft.Logs.FixedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
-    [BenchmarkCategory(MicrosoftLogger, EmptySink)]
+    [BenchmarkCategory(MicrosoftLoggerCategory, EmptySinkCategory)]
     public void PreInterpolatedMicrosoftEmptyLogger() =>
         InterpolatedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
-    [BenchmarkCategory(MicrosoftLogger, EmptySink)]
+    [BenchmarkCategory(MicrosoftLoggerCategory, EmptySinkCategory)]
     public void PreStructuredMicrosoftEmptyLogger() =>
         StructuredMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
-    [BenchmarkCategory(MicrosoftLogger, Console)]
+    [BenchmarkCategory(MicrosoftLoggerCategory, ConsoleCategory)]
     public void FixedMessageMicrosoftConsoleLogger() =>
         Microsoft.Logs.FixedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
-    [BenchmarkCategory(MicrosoftLogger, Console)]
+    [BenchmarkCategory(MicrosoftLoggerCategory, ConsoleCategory)]
     public void PreInterpolatedMicrosoftConsoleLogger() =>
         InterpolatedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 
     [Benchmark]
-    [BenchmarkCategory(MicrosoftLogger, Console)]
+    [BenchmarkCategory(MicrosoftLoggerCategory, ConsoleCategory)]
     public void PreStructuredMicrosoftConsoleLogger() =>
         StructuredMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
 }

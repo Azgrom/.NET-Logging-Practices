@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Benchmarks", "Loggi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Logs", "Microsoft.Logs\Microsoft.Logs.csproj", "{C58ADD80-311A-4C52-89A0-173130084A7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingBestPractices.Serilogging", "LoggingBestPractices.Serilogging\LoggingBestPractices.Serilogging.csproj", "{C243CC05-2A07-487F-8ADD-DF8078225C52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Logs", "Serilog.Logs\Serilog.Logs.csproj", "{C243CC05-2A07-487F-8ADD-DF8078225C52}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configurations", "Configurations\Configurations.csproj", "{8DA5D285-BDBB-4EA0-8743-A4F56A6B4B2F}"
 EndProject

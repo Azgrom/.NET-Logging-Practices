@@ -3,20 +3,23 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using ILogger = Serilog.ILogger;
 
-namespace LoggingBestPractices.Serilogging;
+namespace Serilog.Logs;
 
-public class StructuredMessageSerilogConsoleLogger
+public class StructuredMessageSerilogEmptyLogger
 {
     private readonly ILogger _logger;
 
-    public StructuredMessageSerilogConsoleLogger(LogLevel logLevel) =>
+    public StructuredMessageSerilogEmptyLogger(LogLevel logLevel) =>
         _logger = logLevel switch
         {
             LogLevel.Warning => new LoggerConfiguration()
+                .MinimumLevel.Warning()
                 .CreateLogger(),
             LogLevel.Information => new LoggerConfiguration()
+                .MinimumLevel.Information()
                 .CreateLogger(),
             _ => _logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
                 .CreateLogger()
         };
 
@@ -25,11 +28,9 @@ public class StructuredMessageSerilogConsoleLogger
 
     public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
-        var preStructuredMessageSerilogConsoleLogger = new StructuredMessageSerilogConsoleLogger(LogLevel.Warning);
+        var preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel.Warning);
 
         for (int i = 0; i < Constants.Iterations; i++)
-        {
-            preStructuredMessageSerilogConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
-        }
+            preStructuredMessageSerilogEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

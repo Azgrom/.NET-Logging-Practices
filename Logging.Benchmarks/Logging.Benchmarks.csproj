@@ -19,7 +19,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Microsoft.Logs\Microsoft.Logs.csproj" />
-        <ProjectReference Include="..\LoggingBestPractices.Serilogging\LoggingBestPractices.Serilogging.csproj" />
+        <ProjectReference Include="..\Serilog.Logs\Serilog.Logs.csproj" />
     </ItemGroup>
 
 </Project>
