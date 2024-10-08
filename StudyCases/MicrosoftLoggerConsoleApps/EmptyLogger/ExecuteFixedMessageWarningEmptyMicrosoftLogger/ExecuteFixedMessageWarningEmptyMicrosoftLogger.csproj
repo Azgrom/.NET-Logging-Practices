@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\LoggingBestPractices.MicrosoftDefaultLogging\LoggingBestPractices.MicrosoftDefaultLogging.csproj" />
+      <ProjectReference Include="..\..\..\..\LoggingBestPractices.MicrosoftDefaultLogging\LoggingBestPractices.MicrosoftDefaultLogging.csproj" />
     </ItemGroup>
 
 </Project>

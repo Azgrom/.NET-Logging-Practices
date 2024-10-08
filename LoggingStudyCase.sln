@@ -10,13 +10,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configurations", "Configura
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicrosoftLoggerConsoleApps", "MicrosoftLoggerConsoleApps", "{0659D4C5-0A42-46CA-A30C-ABACA7B610AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageInformationConsoleMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ExecuteFixedMessageInformationConsoleMicrosoftLogger\ExecuteFixedMessageInformationConsoleMicrosoftLogger.csproj", "{41D80E96-E2C6-4073-B543-7948C7C3AEFF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmptyLogger", "EmptyLogger", "{66FB92FE-8E2D-4EDA-8B88-08507ECA7E8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageWarningEmptyMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ExecuteFixedMessageWarningEmptyMicrosoftLogger\ExecuteFixedMessageWarningEmptyMicrosoftLogger.csproj", "{BEC54776-19E0-405B-968D-BC59542AD201}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageInformationEmptyMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\EmptyLogger\ExecuteFixedMessageInformationEmptyMicrosoftLogger\ExecuteFixedMessageInformationEmptyMicrosoftLogger.csproj", "{7996D8D7-4F87-42A0-BEEB-320A4980AB7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageInformationEmptyMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ExecuteFixedMessageInformationEmptyMicrosoftLogger\ExecuteFixedMessageInformationEmptyMicrosoftLogger.csproj", "{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageWarningEmptyMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\EmptyLogger\ExecuteFixedMessageWarningEmptyMicrosoftLogger\ExecuteFixedMessageWarningEmptyMicrosoftLogger.csproj", "{00D3E517-6A80-4991-A336-2BFFE0CC1962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageWarningConsoleMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ExecuteFixedMessageWarningConsoleMicrosoftLogger\ExecuteFixedMessageWarningConsoleMicrosoftLogger.csproj", "{B7221475-5821-4372-8511-6936C95280AD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleLogger", "ConsoleLogger", "{7F50B03E-0D56-4581-BFBE-FC35535AC5AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageInformationConsoleMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ConsoleLogger\ExecuteFixedMessageInformationConsoleMicrosoftLogger\ExecuteFixedMessageInformationConsoleMicrosoftLogger.csproj", "{4FC6E0DC-31F8-48AD-9BBD-EE2E7971E892}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteFixedMessageWarningConsoleMicrosoftLogger", "StudyCases\MicrosoftLoggerConsoleApps\ConsoleLogger\ExecuteFixedMessageWarningConsoleMicrosoftLogger\ExecuteFixedMessageWarningConsoleMicrosoftLogger.csproj", "{615E16A4-2E82-4E62-9658-8DCE76A6BF6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,27 +44,29 @@ Global
 		{8DA5D285-BDBB-4EA0-8743-A4F56A6B4B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DA5D285-BDBB-4EA0-8743-A4F56A6B4B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DA5D285-BDBB-4EA0-8743-A4F56A6B4B2F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{41D80E96-E2C6-4073-B543-7948C7C3AEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41D80E96-E2C6-4073-B543-7948C7C3AEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41D80E96-E2C6-4073-B543-7948C7C3AEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41D80E96-E2C6-4073-B543-7948C7C3AEFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEC54776-19E0-405B-968D-BC59542AD201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEC54776-19E0-405B-968D-BC59542AD201}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEC54776-19E0-405B-968D-BC59542AD201}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEC54776-19E0-405B-968D-BC59542AD201}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7221475-5821-4372-8511-6936C95280AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7221475-5821-4372-8511-6936C95280AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7221475-5821-4372-8511-6936C95280AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7221475-5821-4372-8511-6936C95280AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7996D8D7-4F87-42A0-BEEB-320A4980AB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7996D8D7-4F87-42A0-BEEB-320A4980AB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7996D8D7-4F87-42A0-BEEB-320A4980AB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7996D8D7-4F87-42A0-BEEB-320A4980AB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00D3E517-6A80-4991-A336-2BFFE0CC1962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D3E517-6A80-4991-A336-2BFFE0CC1962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D3E517-6A80-4991-A336-2BFFE0CC1962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D3E517-6A80-4991-A336-2BFFE0CC1962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FC6E0DC-31F8-48AD-9BBD-EE2E7971E892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FC6E0DC-31F8-48AD-9BBD-EE2E7971E892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FC6E0DC-31F8-48AD-9BBD-EE2E7971E892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FC6E0DC-31F8-48AD-9BBD-EE2E7971E892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{615E16A4-2E82-4E62-9658-8DCE76A6BF6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615E16A4-2E82-4E62-9658-8DCE76A6BF6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615E16A4-2E82-4E62-9658-8DCE76A6BF6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615E16A4-2E82-4E62-9658-8DCE76A6BF6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{41D80E96-E2C6-4073-B543-7948C7C3AEFF} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
-		{BEC54776-19E0-405B-968D-BC59542AD201} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
-		{AF6CBF21-BD2F-4A16-B167-3FD491C366BE} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
-		{B7221475-5821-4372-8511-6936C95280AD} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
+		{66FB92FE-8E2D-4EDA-8B88-08507ECA7E8F} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
+		{7996D8D7-4F87-42A0-BEEB-320A4980AB7A} = {66FB92FE-8E2D-4EDA-8B88-08507ECA7E8F}
+		{00D3E517-6A80-4991-A336-2BFFE0CC1962} = {66FB92FE-8E2D-4EDA-8B88-08507ECA7E8F}
+		{7F50B03E-0D56-4581-BFBE-FC35535AC5AF} = {0659D4C5-0A42-46CA-A30C-ABACA7B610AC}
+		{4FC6E0DC-31F8-48AD-9BBD-EE2E7971E892} = {7F50B03E-0D56-4581-BFBE-FC35535AC5AF}
+		{615E16A4-2E82-4E62-9658-8DCE76A6BF6D} = {7F50B03E-0D56-4581-BFBE-FC35535AC5AF}
 	EndGlobalSection
 EndGlobal
