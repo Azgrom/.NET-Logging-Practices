@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\LoggingBestPractices.MicrosoftDefaultLogging\LoggingBestPractices.MicrosoftDefaultLogging.csproj" />
+        <ProjectReference Include="..\Microsoft.Logs\Microsoft.Logs.csproj" />
         <ProjectReference Include="..\LoggingBestPractices.Serilogging\LoggingBestPractices.Serilogging.csproj" />
     </ItemGroup>
 

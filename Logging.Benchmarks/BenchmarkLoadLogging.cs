@@ -2,7 +2,7 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Jobs;
-using LoggingBestPractices.DefaultLogging;
+using Microsoft.Logs;
 using LoggingBestPractices.Serilogging;
 
 namespace Logging.Benchmarks;
@@ -52,7 +52,7 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
     public void FixedMessageMicrosoftEmptyLogger() =>
-        LoggingBestPractices.DefaultLogging.FixedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning();
+        Microsoft.Logs.FixedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
@@ -67,7 +67,7 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]
     public void FixedMessageMicrosoftConsoleLogger() =>
-        LoggingBestPractices.DefaultLogging.FixedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();
+        Microsoft.Logs.FixedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]

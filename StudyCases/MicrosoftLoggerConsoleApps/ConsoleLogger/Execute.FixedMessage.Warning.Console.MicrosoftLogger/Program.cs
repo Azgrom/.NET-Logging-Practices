@@ -1,3 +1,3 @@
-﻿using LoggingBestPractices.DefaultLogging;
+﻿using Microsoft.Logs;
 
 FixedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();

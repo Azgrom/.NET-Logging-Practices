@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Benchmarks", "Logging.Benchmarks\Logging.Benchmarks.csproj", "{D16A5A11-8BBB-47AF-AE78-A0183B212885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingBestPractices.MicrosoftDefaultLogging", "LoggingBestPractices.MicrosoftDefaultLogging\LoggingBestPractices.MicrosoftDefaultLogging.csproj", "{C58ADD80-311A-4C52-89A0-173130084A7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Logs", "Microsoft.Logs\Microsoft.Logs.csproj", "{C58ADD80-311A-4C52-89A0-173130084A7C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingBestPractices.Serilogging", "LoggingBestPractices.Serilogging\LoggingBestPractices.Serilogging.csproj", "{C243CC05-2A07-487F-8ADD-DF8078225C52}"
 EndProject

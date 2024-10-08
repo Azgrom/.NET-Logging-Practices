@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
-using LoggingBestPractices.DefaultLogging;
+using Microsoft.Logs;
 using LoggingBestPractices.Serilogging;
 using Microsoft.Extensions.Logging;
 // ReSharper disable UnassignedField.Global

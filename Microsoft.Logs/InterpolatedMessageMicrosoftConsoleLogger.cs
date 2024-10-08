@@ -1,8 +1,9 @@
 using Configurations;
 using Microsoft.Extensions.Logging;
+
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
-namespace LoggingBestPractices.DefaultLogging;
+namespace Microsoft.Logs;
 
 public sealed class InterpolatedMessageMicrosoftConsoleLogger
 {

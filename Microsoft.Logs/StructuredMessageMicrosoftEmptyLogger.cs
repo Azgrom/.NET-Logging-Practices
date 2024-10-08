@@ -1,7 +1,7 @@
 using Configurations;
 using Microsoft.Extensions.Logging;
 
-namespace LoggingBestPractices.DefaultLogging;
+namespace Microsoft.Logs;
 
 public sealed class StructuredMessageMicrosoftEmptyLogger
 {

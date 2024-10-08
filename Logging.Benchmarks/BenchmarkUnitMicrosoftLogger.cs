@@ -1,7 +1,7 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
-using LoggingBestPractices.DefaultLogging;
+using Microsoft.Logs;
 using Microsoft.Extensions.Logging;
 // ReSharper disable All
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
