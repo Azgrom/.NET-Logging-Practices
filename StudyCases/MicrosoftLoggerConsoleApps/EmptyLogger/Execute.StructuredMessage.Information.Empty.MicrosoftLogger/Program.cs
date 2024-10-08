@@ -1,0 +1,3 @@
+﻿using LoggingBestPractices.DefaultLogging;
+
+StructuredMessageMicrosoftEmptyLogger.Execute100MillionTimes_Information();

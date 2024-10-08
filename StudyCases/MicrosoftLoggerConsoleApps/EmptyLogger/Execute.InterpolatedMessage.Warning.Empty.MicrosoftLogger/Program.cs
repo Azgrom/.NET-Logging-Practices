@@ -1,3 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using LoggingBestPractices.DefaultLogging;
 
-Console.WriteLine("Hello, World!");
+InterpolatedMessageMicrosoftEmptyLogger.Execute100MillionTimes_Warning();
