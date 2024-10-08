@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace LoggingBestPractices.Benchmarks;
+namespace Logging.Benchmarks;
 
 public static class LoggerMessageDefinitions
 {

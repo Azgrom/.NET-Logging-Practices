@@ -1,4 +1,4 @@
-namespace LoggingBestPractices.Benchmarks;
+namespace Logging.Benchmarks;
 
 internal interface ILoggerAdapter<T>
 {

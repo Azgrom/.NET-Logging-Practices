@@ -5,9 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
-        <AssemblyName>LoggingBestPractices.Benchmarks</AssemblyName>
-        <RootNamespace>LoggingBestPractices.Benchmarks</RootNamespace>
-        <PackageId>LoggingBestPractices.Benchmarks</PackageId>
+        <PackageId>Logging.Benchmarks</PackageId>
         <Authors>LoggingBestPractices.Benchmarks</Authors>
         <Optimize>true</Optimize>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>

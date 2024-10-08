@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 // ReSharper disable UnassignedField.Global
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-namespace LoggingBestPractices.Benchmarks;
+namespace Logging.Benchmarks;
 
 /// <summary>
 ///     Benchmarks Serilog versus Microsoft.Logging with and without Console sink. And with different message template

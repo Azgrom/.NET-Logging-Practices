@@ -5,7 +5,7 @@ using BenchmarkDotNet.Jobs;
 using LoggingBestPractices.DefaultLogging;
 using LoggingBestPractices.Serilogging;
 
-namespace LoggingBestPractices.Benchmarks;
+namespace Logging.Benchmarks;
 
 [CategoriesColumn]
 [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
@@ -22,7 +22,7 @@ public class BenchmarkLoadLogging
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(Serilog, EmptySink)]
     public void FixedMessageSerilogEmptyLogger() =>
-        Serilogging.FixedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning();
+        LoggingBestPractices.Serilogging.FixedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(Serilog, EmptySink)]
@@ -37,7 +37,7 @@ public class BenchmarkLoadLogging
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(Serilog, Console)]
     public void FixedMessageSerilogConsoleLogger() =>
-        Serilogging.FixedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning();
+        LoggingBestPractices.Serilogging.FixedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(Serilog, Console)]
@@ -52,7 +52,7 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
     public void FixedMessageMicrosoftEmptyLogger() =>
-        DefaultLogging.FixedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning();
+        LoggingBestPractices.DefaultLogging.FixedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, EmptySink)]
@@ -67,7 +67,7 @@ public class BenchmarkLoadLogging
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]
     public void FixedMessageMicrosoftConsoleLogger() =>
-        DefaultLogging.FixedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();
+        LoggingBestPractices.DefaultLogging.FixedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLogger, Console)]

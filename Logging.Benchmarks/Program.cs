@@ -1,5 +1,5 @@
 using BenchmarkDotNet.Running;
-using LoggingBestPractices.Benchmarks;
+using Logging.Benchmarks;
 using LoggingBestPractices.DefaultLogging;
 
 // var summary = BenchmarkRunner.Run<BenchmarkLoadLogging>();
