@@ -1,7 +1,6 @@
 using Configurations;
 using Microsoft.Extensions.Logging;
-using Serilog;
-using ILogger = Serilog.ILogger;
+
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
 namespace Serilog.Logs;
