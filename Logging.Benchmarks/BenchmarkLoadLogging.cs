@@ -22,60 +22,60 @@ public class BenchmarkLoadLogging
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(SerilogCategory, EmptySinkCategory)]
     public void FixedMessageSerilogEmptyLogger() =>
-        Serilog.Logs.FixedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning();
+        Serilog.Logs.FixedMessageSerilogEmptyLogger.IterateExecutionNMillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(SerilogCategory, EmptySinkCategory)]
     public void PreInterpolatedSerilogEmptyLogger() =>
-        InterpolatedMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        InterpolatedMessageSerilogEmptyLogger.IterateExecutionNMillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(SerilogCategory, EmptySinkCategory)]
     public void PreStructuredSerilogEmptyLogger() =>
-        StructuredMessageSerilogEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        StructuredMessageSerilogEmptyLogger.IterateExecutionNMillionTimes_Warning(Random.Next);
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(SerilogCategory, ConsoleCategory)]
     public void FixedMessageSerilogConsoleLogger() =>
-        Serilog.Logs.FixedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning();
+        Serilog.Logs.FixedMessageSerilogConsoleLogger.IterateExecutionNMillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(SerilogCategory, ConsoleCategory)]
     public void PreInterpolatedSerilogConsoleLogger() =>
-        InterpolatedMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        InterpolatedMessageSerilogConsoleLogger.IterateExecutionNMillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(SerilogCategory, ConsoleCategory)]
     public void PreStructuredSerilogConsoleLogger() =>
-        StructuredMessageSerilogConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        StructuredMessageSerilogConsoleLogger.IterateExecutionNMillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLoggerCategory, EmptySinkCategory)]
     public void FixedMessageMicrosoftEmptyLogger() =>
-        Microsoft.Logs.FixedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning();
+        Microsoft.Logs.FixedMessageMicrosoftEmptyLogger.IterateExecutionNMillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLoggerCategory, EmptySinkCategory)]
     public void PreInterpolatedMicrosoftEmptyLogger() =>
-        InterpolatedMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        InterpolatedMessageMicrosoftEmptyLogger.IterateExecutionNMillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLoggerCategory, EmptySinkCategory)]
     public void PreStructuredMicrosoftEmptyLogger() =>
-        StructuredMessageMicrosoftEmptyLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        StructuredMessageMicrosoftEmptyLogger.IterateExecutionNMillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLoggerCategory, ConsoleCategory)]
     public void FixedMessageMicrosoftConsoleLogger() =>
-        Microsoft.Logs.FixedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning();
+        Microsoft.Logs.FixedMessageMicrosoftConsoleLogger.IterateExecutionNMillionTimes_Warning();
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLoggerCategory, ConsoleCategory)]
     public void PreInterpolatedMicrosoftConsoleLogger() =>
-        InterpolatedMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        InterpolatedMessageMicrosoftConsoleLogger.IterateExecutionNMillionTimes_Warning(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftLoggerCategory, ConsoleCategory)]
     public void PreStructuredMicrosoftConsoleLogger() =>
-        StructuredMessageMicrosoftConsoleLogger.IterateExecution100MillionTimes_Warning(Random.Next);
+        StructuredMessageMicrosoftConsoleLogger.IterateExecutionNMillionTimes_Warning(Random.Next);
 }

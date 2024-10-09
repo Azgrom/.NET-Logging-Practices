@@ -26,7 +26,7 @@ public class StructuredMessageSerilogEmptyLogger
     public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
         _logger.Information("Random number {NextRandomInteger}", nextRandomNumberGenerator());
 
-    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
+    public static void IterateExecutionNMillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
         var preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel.Warning);
 

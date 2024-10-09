@@ -16,7 +16,7 @@ public sealed class FixedMessageMicrosoftEmptyLogger
     public void ExecuteInformation() => _logger.LogInformation("Just a plain fixed Message");
 
 
-    public static void IterateExecution100MillionTimes_Information()
+    public static void IterateExecutionNMillionTimes_Information()
     {
         var fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel.Information);
 
@@ -24,7 +24,7 @@ public sealed class FixedMessageMicrosoftEmptyLogger
             fixedMessageMicrosoftEmptyLogger.ExecuteInformation();
     }
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecutionNMillionTimes_Warning()
     {
         var fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel.Warning);
 

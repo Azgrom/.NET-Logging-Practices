@@ -27,7 +27,7 @@ public class FixedMessageSerilogConsoleLogger
     public void ExecuteInformation() =>
         _logger.Information("Just a plain fixed Message");
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecutionNMillionTimes_Warning()
     {
         var fixedMessageSerilogConsoleLogger = new FixedMessageSerilogConsoleLogger(LogLevel.Warning);
 

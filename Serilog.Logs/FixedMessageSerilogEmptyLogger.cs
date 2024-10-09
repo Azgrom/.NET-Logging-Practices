@@ -26,7 +26,7 @@ public class FixedMessageSerilogEmptyLogger
     public void ExecuteInformation() =>
         _logger.Information("Just a plain fixed Message");
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecutionNMillionTimes_Warning()
     {
         var fixedMessageSerilogEmptyLogger = new FixedMessageSerilogEmptyLogger(LogLevel.Warning);
 

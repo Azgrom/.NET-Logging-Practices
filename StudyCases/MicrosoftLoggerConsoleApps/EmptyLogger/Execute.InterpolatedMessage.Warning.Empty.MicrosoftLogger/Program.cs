@@ -1,3 +1,3 @@
 ﻿using Microsoft.Logs;
 
-InterpolatedMessageMicrosoftEmptyLogger.Execute100MillionTimes_Warning();
+InterpolatedMessageMicrosoftEmptyLogger.ExecuteNMillionTimes_Warning();

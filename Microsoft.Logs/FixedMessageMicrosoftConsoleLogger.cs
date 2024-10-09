@@ -15,7 +15,7 @@ public sealed class FixedMessageMicrosoftConsoleLogger
 
     public void ExecuteInformation() => _logger.LogInformation("Just a plain fixed Message");
 
-    public static void IterateExecution100MillionTimes_Information()
+    public static void IterateExecutionNMillionTimes_Information()
     {
         var fixedMessageMicrosoftConsoleLogger = new FixedMessageMicrosoftConsoleLogger(LogLevel.Information);
 
@@ -23,7 +23,7 @@ public sealed class FixedMessageMicrosoftConsoleLogger
             fixedMessageMicrosoftConsoleLogger.ExecuteInformation();
     }
 
-    public static void IterateExecution100MillionTimes_Warning()
+    public static void IterateExecutionNMillionTimes_Warning()
     {
         var fixedMessageMicrosoftConsoleLogger = new FixedMessageMicrosoftConsoleLogger(LogLevel.Warning);
 

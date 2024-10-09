@@ -28,7 +28,7 @@ public class InterpolatedMessageSerilogConsoleLogger
     public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
         _logger.Information($"Random number {nextRandomNumberGenerator()}");
 
-    public static void IterateExecution100MillionTimes_Warning(Func<int> nextRandomNumberGenerator)
+    public static void IterateExecutionNMillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
         var preInterpolatedMessageSerilogConsoleLogger = new InterpolatedMessageSerilogConsoleLogger(LogLevel.Warning);
 
