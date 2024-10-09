@@ -15,7 +15,8 @@ public sealed class InterpolatedMessageMicrosoftEmptyLogger
                 .SetMinimumLevel(logLevel))
         );
 
-    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) => _logger.LogInformation($"Random number {nextRandomNumberGenerator()}");
+    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
+        _logger.LogInformation($"Random number {nextRandomNumberGenerator()}");
 
     public static void ExecuteNMillionTimes_Information()
     {
@@ -33,7 +34,7 @@ public sealed class InterpolatedMessageMicrosoftEmptyLogger
     {
         var preInterpolatedMessageMicrosoftEmptyLogger = new InterpolatedMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageMicrosoftEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 
@@ -41,7 +42,7 @@ public sealed class InterpolatedMessageMicrosoftEmptyLogger
     {
         var preInterpolatedMessageMicrosoftEmptyLogger = new InterpolatedMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageMicrosoftEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

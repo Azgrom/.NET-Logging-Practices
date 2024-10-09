@@ -13,11 +13,11 @@ namespace Logging.Benchmarks;
 [SimpleJob(RunStrategy.Monitoring, RuntimeMoniker.Net80)]
 public class BenchmarkLoadLogging
 {
-    private const string EmptySinkCategory = "Empty sink";
-    private const string ConsoleCategory = "Writes to Console";
-    private const string SerilogCategory = "Serilog";
-    private const string MicrosoftLoggerCategory = "Microsoft.Logger";
-    private static readonly Random Random = new();
+    private const           string EmptySinkCategory       = "Empty sink";
+    private const           string ConsoleCategory         = "Writes to Console";
+    private const           string SerilogCategory         = "Serilog";
+    private const           string MicrosoftLoggerCategory = "Microsoft.Logger";
+    private static readonly Random Random                  = new();
 
     [Benchmark(Baseline = true)]
     [BenchmarkCategory(SerilogCategory, EmptySinkCategory)]

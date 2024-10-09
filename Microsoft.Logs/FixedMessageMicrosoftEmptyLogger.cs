@@ -20,15 +20,13 @@ public sealed class FixedMessageMicrosoftEmptyLogger
     {
         var fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel.Information);
 
-        for (int i = 0; i < Constants.Iterations; i++)
-            fixedMessageMicrosoftEmptyLogger.ExecuteInformation();
+        for (var i = 0; i < Constants.Iterations; i++) fixedMessageMicrosoftEmptyLogger.ExecuteInformation();
     }
 
     public static void IterateExecutionNMillionTimes_Warning()
     {
         var fixedMessageMicrosoftEmptyLogger = new FixedMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
-            fixedMessageMicrosoftEmptyLogger.ExecuteInformation();
+        for (var i = 0; i < Constants.Iterations; i++) fixedMessageMicrosoftEmptyLogger.ExecuteInformation();
     }
 }

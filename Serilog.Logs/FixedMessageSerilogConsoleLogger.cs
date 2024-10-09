@@ -22,14 +22,12 @@ public class FixedMessageSerilogConsoleLogger
                 .CreateLogger()
         };
 
-    public void ExecuteInformation() =>
-        _logger.Information("Just a plain fixed Message");
+    public void ExecuteInformation() => _logger.Information("Just a plain fixed Message");
 
     public static void IterateExecutionNMillionTimes_Warning()
     {
         var fixedMessageSerilogConsoleLogger = new FixedMessageSerilogConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
-            fixedMessageSerilogConsoleLogger.ExecuteInformation();
+        for (var i = 0; i < Constants.Iterations; i++) fixedMessageSerilogConsoleLogger.ExecuteInformation();
     }
 }

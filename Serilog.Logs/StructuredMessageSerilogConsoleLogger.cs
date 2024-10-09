@@ -25,9 +25,7 @@ public class StructuredMessageSerilogConsoleLogger
     {
         var preStructuredMessageSerilogConsoleLogger = new StructuredMessageSerilogConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
-        {
+        for (var i = 0; i < Constants.Iterations; i++)
             preStructuredMessageSerilogConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
-        }
     }
 }

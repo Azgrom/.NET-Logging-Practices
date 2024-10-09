@@ -15,14 +15,15 @@ public sealed class InterpolatedMessageMicrosoftConsoleLogger
                 .SetMinimumLevel(logLevel))
         );
 
-    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) => _logger.LogInformation($"Random number {nextRandomNumberGenerator()}");
+    public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
+        _logger.LogInformation($"Random number {nextRandomNumberGenerator()}");
 
     public static void ExecuteNTimes_Information()
     {
         var random = new Random();
         IterateExecutionNMillionTimes_Information(random.Next);
     }
-    
+
     public static void ExecuteNTimes_Warning()
     {
         var random = new Random();
@@ -31,17 +32,19 @@ public sealed class InterpolatedMessageMicrosoftConsoleLogger
 
     public static void IterateExecutionNMillionTimes_Information(Func<int> nextRandomNumberGenerator)
     {
-        var preInterpolatedMessageMicrosoftConsoleLogger = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel.Information);
+        var preInterpolatedMessageMicrosoftConsoleLogger
+            = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel.Information);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageMicrosoftConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 
     public static void IterateExecutionNMillionTimes_Warning(Func<int> nextRandomNumberGenerator)
     {
-        var preInterpolatedMessageMicrosoftConsoleLogger = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel.Warning);
+        var preInterpolatedMessageMicrosoftConsoleLogger
+            = new InterpolatedMessageMicrosoftConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageMicrosoftConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

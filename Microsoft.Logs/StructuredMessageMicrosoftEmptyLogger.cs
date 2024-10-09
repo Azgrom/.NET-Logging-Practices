@@ -32,7 +32,7 @@ public sealed class StructuredMessageMicrosoftEmptyLogger
     {
         var preStructuredMessageMicrosoftEmptyLogger = new StructuredMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preStructuredMessageMicrosoftEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 
@@ -40,7 +40,7 @@ public sealed class StructuredMessageMicrosoftEmptyLogger
     {
         var preStructuredMessageMicrosoftEmptyLogger = new StructuredMessageMicrosoftEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preStructuredMessageMicrosoftEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

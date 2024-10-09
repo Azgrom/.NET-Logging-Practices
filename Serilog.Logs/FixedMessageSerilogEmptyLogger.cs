@@ -21,14 +21,12 @@ public class FixedMessageSerilogEmptyLogger
                 .CreateLogger()
         };
 
-    public void ExecuteInformation() =>
-        _logger.Information("Just a plain fixed Message");
+    public void ExecuteInformation() => _logger.Information("Just a plain fixed Message");
 
     public static void IterateExecutionNMillionTimes_Warning()
     {
         var fixedMessageSerilogEmptyLogger = new FixedMessageSerilogEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
-            fixedMessageSerilogEmptyLogger.ExecuteInformation();
+        for (var i = 0; i < Constants.Iterations; i++) fixedMessageSerilogEmptyLogger.ExecuteInformation();
     }
 }

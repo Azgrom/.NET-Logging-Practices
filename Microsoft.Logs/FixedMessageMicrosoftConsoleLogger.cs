@@ -19,15 +19,13 @@ public sealed class FixedMessageMicrosoftConsoleLogger
     {
         var fixedMessageMicrosoftConsoleLogger = new FixedMessageMicrosoftConsoleLogger(LogLevel.Information);
 
-        for (int i = 0; i < Constants.Iterations; i++)
-            fixedMessageMicrosoftConsoleLogger.ExecuteInformation();
+        for (var i = 0; i < Constants.Iterations; i++) fixedMessageMicrosoftConsoleLogger.ExecuteInformation();
     }
 
     public static void IterateExecutionNMillionTimes_Warning()
     {
         var fixedMessageMicrosoftConsoleLogger = new FixedMessageMicrosoftConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
-            fixedMessageMicrosoftConsoleLogger.ExecuteInformation();
+        for (var i = 0; i < Constants.Iterations; i++) fixedMessageMicrosoftConsoleLogger.ExecuteInformation();
     }
 }

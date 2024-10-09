@@ -31,9 +31,10 @@ public sealed class StructuredMessageMicrosoftConsoleLogger
 
     public static void IterateExecutionNMillionTimes_Information(Func<int> nextRandomNumberGenerator)
     {
-        var preStructuredMessageMicrosoftConsoleLogger = new StructuredMessageMicrosoftConsoleLogger(LogLevel.Information);
+        var preStructuredMessageMicrosoftConsoleLogger
+            = new StructuredMessageMicrosoftConsoleLogger(LogLevel.Information);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preStructuredMessageMicrosoftConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 
@@ -41,7 +42,7 @@ public sealed class StructuredMessageMicrosoftConsoleLogger
     {
         var preStructuredMessageMicrosoftConsoleLogger = new StructuredMessageMicrosoftConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preStructuredMessageMicrosoftConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

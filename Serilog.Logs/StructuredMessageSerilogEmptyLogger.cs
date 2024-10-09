@@ -28,7 +28,7 @@ public class StructuredMessageSerilogEmptyLogger
     {
         var preStructuredMessageSerilogEmptyLogger = new StructuredMessageSerilogEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preStructuredMessageSerilogEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

@@ -8,6 +8,8 @@ public class LoggerAdapter<T> : ILoggerAdapter<T>
 
     public LoggerAdapter(ILogger<T> logger) => _logger = logger;
 
+    #region ILoggerAdapter<T> Members
+
     public void LogInformation(string message)
     {
         if (_logger.IsEnabled(LogLevel.Information)) _logger.LogInformation(message);
@@ -23,8 +25,15 @@ public class LoggerAdapter<T> : ILoggerAdapter<T>
         if (_logger.IsEnabled(LogLevel.Information)) _logger.LogInformation(message, arg0, arg1);
     }
 
-    public void LogInformation<T0, T1, T2>(string message, T0 arg0, T1 arg1, T2 arg2)
+    public void LogInformation<T0, T1, T2>(
+        string message,
+        T0     arg0,
+        T1     arg1,
+        T2     arg2
+    )
     {
         if (_logger.IsEnabled(LogLevel.Information)) _logger.LogInformation(message, arg0, arg1, arg2);
     }
+
+    #endregion
 }

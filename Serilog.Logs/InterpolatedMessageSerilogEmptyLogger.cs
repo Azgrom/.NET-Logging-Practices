@@ -30,7 +30,7 @@ public class InterpolatedMessageSerilogEmptyLogger
     {
         var preInterpolatedMessageSerilogEmptyLogger = new InterpolatedMessageSerilogEmptyLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageSerilogEmptyLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }

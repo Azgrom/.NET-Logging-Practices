@@ -31,7 +31,7 @@ public class InterpolatedMessageSerilogConsoleLogger
     {
         var preInterpolatedMessageSerilogConsoleLogger = new InterpolatedMessageSerilogConsoleLogger(LogLevel.Warning);
 
-        for (int i = 0; i < Constants.Iterations; i++)
+        for (var i = 0; i < Constants.Iterations; i++)
             preInterpolatedMessageSerilogConsoleLogger.ExecuteInformation(nextRandomNumberGenerator);
     }
 }
