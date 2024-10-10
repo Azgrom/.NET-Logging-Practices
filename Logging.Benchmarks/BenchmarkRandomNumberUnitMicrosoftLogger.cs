@@ -3,8 +3,8 @@ using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.Logs;
-// ReSharper disable UnassignedField.Global
 
+// ReSharper disable All
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace Logging.Benchmarks;
@@ -18,11 +18,11 @@ namespace Logging.Benchmarks;
 [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
 [MemoryDiagnoser]
 [SimpleJob(RuntimeMoniker.Net80)]
-public class BenchmarkUnitMicrosoftLogger
+public class BenchmarkRandomNumberUnitMicrosoftLogger
 {
-    private const string MicrosoftEmptyLoggerCategory   = "Microsoft Empty Logger";
-    private const string MicrosoftConsoleLoggerCategory = "Microsoft Console Logger";
-    private const int    RandomFixedNumber              = 3149215;
+    private const           string MicrosoftEmptyLoggerCategory   = "Microsoft Empty Logger";
+    private const           string MicrosoftConsoleLoggerCategory = "Microsoft Console Logger";
+    private static readonly Random Random                         = new();
 
     private FixedMessageMicrosoftConsoleLogger _fixedMessageMicrosoftConsoleLogger;
     private FixedMessageMicrosoftEmptyLogger   _fixedMessageMicrosoftEmptyLogger;
@@ -60,20 +60,20 @@ public class BenchmarkUnitMicrosoftLogger
     [Benchmark]
     [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
     public void PreInterpolatedMicrosoftEmptyLogger() =>
-        _preInterpolatedMessageMicrosoftEmptyLogger.ExecuteInformation(RandomFixedNumber);
+        _preInterpolatedMessageMicrosoftEmptyLogger.ExecuteInformation(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
     public void PreInterpolatedMessageMicrosoftConsoleLogger() =>
-        _preInterpolatedMessageMicrosoftConsoleLogger.ExecuteInformation(RandomFixedNumber);
+        _preInterpolatedMessageMicrosoftConsoleLogger.ExecuteInformation(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftEmptyLoggerCategory)]
     public void PreStructuredMicrosoftEmptyLogger() =>
-        _preStructuredMessageMicrosoftEmptyLogger.ExecuteInformation(RandomFixedNumber);
+        _preStructuredMessageMicrosoftEmptyLogger.ExecuteInformation(Random.Next);
 
     [Benchmark]
     [BenchmarkCategory(MicrosoftConsoleLoggerCategory)]
     public void PreStructuredMessageMicrosoftConsoleLogger() =>
-        _preStructuredMessageMicrosoftConsoleLogger.ExecuteInformation(RandomFixedNumber);
+        _preStructuredMessageMicrosoftConsoleLogger.ExecuteInformation(Random.Next);
 }

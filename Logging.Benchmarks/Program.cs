@@ -3,9 +3,8 @@ using Logging.Benchmarks;
 
 // var summary = BenchmarkRunner.Run<BenchmarkLoadLogging>();
 
-var run        = BenchmarkRunner.Run<BenchmarkUnitMicrosoftLogger>();
-var runOrderer = run.Orderer;
-
+var run       = BenchmarkRunner.Run([typeof(BenchmarkUnitLogging), typeof(BenchmarkUnitMicrosoftLogger)]);
+var summaries = run.ToList();
 Console.WriteLine();
 
 // summary.

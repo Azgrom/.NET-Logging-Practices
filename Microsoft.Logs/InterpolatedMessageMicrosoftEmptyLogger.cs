@@ -15,6 +15,9 @@ public sealed class InterpolatedMessageMicrosoftEmptyLogger
                 .SetMinimumLevel(logLevel))
         );
 
+    public void ExecuteInformation(int nextRandomNumberGenerator) =>
+        _logger.LogInformation("Random number {NextRandomInteger}", nextRandomNumberGenerator);
+
     public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
         _logger.LogInformation($"Random number {nextRandomNumberGenerator()}");
 

@@ -13,9 +13,11 @@ public sealed class StructuredMessageMicrosoftConsoleLogger
                 .SetMinimumLevel(logLevel))
         );
 
+    public void ExecuteInformation(int nextRandomNumberGenerator) =>
+        _logger.LogInformation("Random number {NextRandomInteger}", nextRandomNumberGenerator);
+
     public void ExecuteInformation(Func<int> nextRandomNumberGenerator) =>
         _logger.LogInformation("Random number {NextRandomInteger}", nextRandomNumberGenerator());
-
 
     public static void ExecuteNTimes_Information()
     {
