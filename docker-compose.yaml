@@ -4,21 +4,21 @@ services:
   unit_logging_benchmark:
     build: .
     container_name: unit_logging_benchmark
-    entrypoint: ["dotnet", "bin/Release/net7.0/LoggingBestPractices.Benchmarks.dll", "--filter", "'*BenchmarkUnitLogging*'"]
+    entrypoint: ["dotnet", "bin/Release/net7.0/LoggingBestPractices.Benchmarks.dll", "--filter", "*BenchmarkUnitLogging*"]
     privileged: true
     volumes:
       - "./BenchmarkDotNet.Artifacts:/src/LoggingBestPractices.Benchmarks/BenchmarkDotNet.Artifacts"
   load_logging_benchmark:
     build: .
     container_name: load_logging_benchmark
-    entrypoint: ["dotnet", "bin/Release/net7.0/LoggingBestPractices.Benchmarks.dll", "--filter", "'*BenchmarkLoadLogging*'"]
+    entrypoint: ["dotnet", "bin/Release/net7.0/LoggingBestPractices.Benchmarks.dll", "--filter", "*BenchmarkLoadLogging*"]
     privileged: true
     volumes:
       - "./BenchmarkDotNet.Artifacts:/src/LoggingBestPractices.Benchmarks/BenchmarkDotNet.Artifacts"
   run_all_benchmarks:
     build: .
     container_name: all_logging_benchmarks
-    entrypoint: ["dotnet", "bin/Release/net7.0/LoggingBestPractices.Benchmarks.dll", "--filter", "'*'"]
+    entrypoint: ["dotnet", "bin/Release/net7.0/LoggingBestPractices.Benchmarks.dll", "--filter", "*"]
     privileged: true
     volumes:
       - "./BenchmarkDotNet.Artifacts:/src/LoggingBestPractices.Benchmarks/BenchmarkDotNet.Artifacts"

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <PackageId>Logging.Benchmarks</PackageId>
+        <Authors>LoggingBestPractices.Benchmarks</Authors>
+        <Optimize>true</Optimize>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <LangVersion>12</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BenchmarkDotNet" Version="0.14.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Microsoft.Logs\Microsoft.Logs.csproj"/>
+        <ProjectReference Include="..\Serilog.Logs\Serilog.Logs.csproj"/>
+    </ItemGroup>
+
+</Project>
