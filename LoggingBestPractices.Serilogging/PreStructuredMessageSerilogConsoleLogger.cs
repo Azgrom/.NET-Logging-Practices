@@ -2,23 +2,27 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using ILogger = Serilog.ILogger;
 
-namespace LoggingBestPractices.Serilogging;
-
-public class PreStructuredMessageSerilogConsoleLogger
+namespace LoggingBestPractices.Serilogging
 {
-    private readonly ILogger _logger;
+    public class PreStructuredMessageSerilogConsoleLogger
+    {
+        private readonly ILogger _logger;
 
-    public PreStructuredMessageSerilogConsoleLogger(LogLevel logLevel) =>
-        _logger = logLevel switch
+        public PreStructuredMessageSerilogConsoleLogger(LogLevel logLevel)
         {
-            LogLevel.Warning => new LoggerConfiguration()
-                .CreateLogger(),
-            LogLevel.Information => new LoggerConfiguration()
-                .CreateLogger(),
-            _ => _logger = new LoggerConfiguration()
-                .CreateLogger()
-        };
+            switch (logLevel)
+            {
+                case LogLevel.Warning:
+                case LogLevel.Information:
+                    _logger = new LoggerConfiguration().CreateLogger();
+                    break;
+                default:
+                    _logger = _logger = new LoggerConfiguration().CreateLogger();
+                    break;
+            }
+        }
 
-    public void Execute() =>
-        _logger.Information("Random number {NextRandomInteger}", Random.Shared.Next());
+        public void Execute() =>
+            _logger.Information("Random number {NextRandomInteger}", new Random().Next());
+    }
 }

@@ -1,13 +1,14 @@
 using Microsoft.Extensions.Logging;
 
-namespace LoggingBestPractices.Benchmarks;
-
-public static partial class LoggerMessageDefinitionsGen
+namespace LoggingBestPractices.Benchmarks
 {
-    [LoggerMessage(EventId = 0, Level = LogLevel.Information, Message = "Log with parameters {First} and {Second}")]
-    public static partial void LogBenchmarkMessageGen(
-        this ILogger logger,
-        int first,
-        int second
-    );
+    public static partial class LoggerMessageDefinitionsGen
+    {
+        [LoggerMessage(EventId = 0, Level = LogLevel.Information, Message = "Log with parameters {First} and {Second}")]
+        public static partial void LogBenchmarkMessageGen(
+            this ILogger logger,
+            int          first,
+            int          second
+        );
+    }
 }

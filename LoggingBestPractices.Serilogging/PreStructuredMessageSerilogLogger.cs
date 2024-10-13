@@ -3,23 +3,27 @@ using Serilog;
 using Serilog.Events;
 using ILogger = Serilog.ILogger;
 
-namespace LoggingBestPractices.Serilogging;
-
-public class PreStructuredMessageSerilogLogger
+namespace LoggingBestPractices.Serilogging
 {
-    private readonly ILogger _logger;
+    public class PreStructuredMessageSerilogLogger
+    {
+        private readonly ILogger _logger;
 
-    public PreStructuredMessageSerilogLogger(LogLevel logLevel) =>
-        _logger = logLevel switch
+        public PreStructuredMessageSerilogLogger(LogLevel logLevel)
         {
-            LogLevel.Warning => new LoggerConfiguration()
-                .CreateLogger(),
-            LogLevel.Information => new LoggerConfiguration()
-                .CreateLogger(),
-            _ => _logger = new LoggerConfiguration()
-                .CreateLogger()
-        };
+            switch (logLevel)
+            {
+                case LogLevel.Warning:
+                case LogLevel.Information:
+                    _logger = new LoggerConfiguration().CreateLogger();
+                    break;
+                default:
+                    _logger = _logger = new LoggerConfiguration().CreateLogger();
+                    break;
+            }
+        }
 
-    public void Execute() =>
-        _logger.Information("Random number {NextRandomInteger}", Random.Shared.Next());
+        public void Execute() =>
+            _logger.Information("Random number {NextRandomInteger}", new Random().Next());
+    }
 }

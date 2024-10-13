@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
@@ -10,6 +9,7 @@
         <PackageId>LoggingBestPractices.Benchmarks</PackageId>
         <Authors>LoggingBestPractices.Benchmarks</Authors>
         <Optimize>true</Optimize>
+        <TargetFrameworks>net8.0;net6.0</TargetFrameworks>
     </PropertyGroup>
 
 

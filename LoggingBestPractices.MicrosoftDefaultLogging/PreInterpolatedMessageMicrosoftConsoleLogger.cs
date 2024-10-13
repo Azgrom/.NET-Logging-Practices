@@ -1,16 +1,17 @@
 using Microsoft.Extensions.Logging;
 
-namespace LoggingBestPractices.DefaultLogging;
-
-public sealed class PreInterpolatedMessageMicrosoftConsoleLogger
+namespace LoggingBestPractices.DefaultLogging
 {
-    private readonly Logger<PreInterpolatedMessageMicrosoftConsoleLogger> _logger;
+    public sealed class PreInterpolatedMessageMicrosoftConsoleLogger
+    {
+        private readonly Logger<PreInterpolatedMessageMicrosoftConsoleLogger> _logger;
 
-    public PreInterpolatedMessageMicrosoftConsoleLogger(LogLevel logLevel) =>
-        _logger = new Logger<PreInterpolatedMessageMicrosoftConsoleLogger>(
-            LoggerFactory.Create(builder => builder.AddConsole()
-                .SetMinimumLevel(logLevel))
-        );
+        public PreInterpolatedMessageMicrosoftConsoleLogger(LogLevel logLevel) =>
+            _logger = new Logger<PreInterpolatedMessageMicrosoftConsoleLogger>(
+                LoggerFactory.Create(builder => builder.AddConsole()
+                    .SetMinimumLevel(logLevel))
+            );
 
-    public void Execute() => _logger.LogInformation($"Random number {Random.Shared.Next()}");
+        public void Execute() => _logger.LogInformation($"Random number {new Random().Next()}");
+    }
 }
