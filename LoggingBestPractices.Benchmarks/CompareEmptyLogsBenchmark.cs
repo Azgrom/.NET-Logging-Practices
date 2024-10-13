@@ -34,10 +34,10 @@ public class CompareEmptyLogsBenchmark
     }
 
     [Benchmark]
-    public void Constant_DefaultLogger_Without_If() { _defaultLogger.LogInformation(ConstantLogMessageTemplate); }
+    public void ConstantTemplate_DefaultLogger_Without_If() { _defaultLogger.LogInformation(ConstantLogMessageTemplate); }
 
     [Benchmark]
-    public void Constant_DefaultLogger_With_If()
+    public void ConstantTemplate_DefaultLogger_With_If()
     {
         if (_defaultLogger.IsEnabled(LogLevel.Information)) _defaultLogger.LogInformation(ConstantLogMessageTemplate);
     }
@@ -82,10 +82,10 @@ public class CompareEmptyLogsBenchmark
     }
 
     [Benchmark]
-    public void Constant_SerilogLogger_Without_If() { _serilogLogger.Information(ConstantLogMessageTemplate); }
+    public void ConstantTemplate_SerilogLogger_Without_If() { _serilogLogger.Information(ConstantLogMessageTemplate); }
 
     [Benchmark]
-    public void Constant_SerilogLogger_With_If()
+    public void ConstantTemplate_SerilogLogger_With_If()
     {
         if (_serilogLogger.IsEnabled(LogEventLevel.Information)) _serilogLogger.Information(ConstantLogMessageTemplate);
     }
