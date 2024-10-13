@@ -4,6 +4,6 @@ namespace Configurations
 {
     public static class Constants
     {
-        public const int Iterations = 10_000;
+        public const int Iterations = 1_000_000;
     }
 }
