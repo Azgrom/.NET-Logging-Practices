@@ -2,8 +2,8 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using Serilog.Core;
 using Serilog.Events;
+using ILogger = Serilog.ILogger;
 
 namespace LoggingBestPractices.Benchmarks;
 
@@ -19,22 +19,24 @@ public class CompareEmptyLogsBenchmark
 
     private const    string                             ConstantLogMessageTemplate = "Fixed Log Message";
     private readonly ILogger<CompareEmptyLogsBenchmark> _defaultLogger;
-    private readonly Logger                             _serilogLogger;
     private readonly LoggerConfiguration                _loggerConfiguration = new();
 
-    private readonly ILoggerFactory _loggerFactory = LoggerFactory.Create(builder =>
-    {
-        builder.AddConsole().SetMinimumLevel(LogLevel.Warning);
-    });
+    private readonly ILoggerFactory _loggerFactory
+        = LoggerFactory.Create(builder => builder.AddConsole().SetMinimumLevel(LogLevel.Warning));
+
+    private readonly ILogger _serilogLogger;
 
     public CompareEmptyLogsBenchmark()
     {
         _defaultLogger = new Logger<CompareEmptyLogsBenchmark>(_loggerFactory);
-        _serilogLogger        = _loggerConfiguration.MinimumLevel.Warning().CreateLogger();
+        _serilogLogger = _loggerConfiguration.MinimumLevel.Warning().CreateLogger();
     }
 
     [Benchmark]
-    public void ConstantTemplate_DefaultLogger_Without_If() { _defaultLogger.LogInformation(ConstantLogMessageTemplate); }
+    public void ConstantTemplate_DefaultLogger_Without_If()
+    {
+        _defaultLogger.LogInformation(ConstantLogMessageTemplate);
+    }
 
     [Benchmark]
     public void ConstantTemplate_DefaultLogger_With_If()
