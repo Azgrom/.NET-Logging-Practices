@@ -23,7 +23,6 @@ public class CompareEmptyLogsBenchmark
 ```
 
 
-
 ## Constant Template Runs
 
 ### Default Logger Checking LogLevel
@@ -42,7 +41,10 @@ for (var i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.ConstantTemplate.DefaultLogger.WithIf/bin/Release/net8.0/Execute.ConstantTemplate.DefaultLogger.WithIf 
+190ms 127µs 245ns
+```
 
 ![image-20241013202319837](./docs/ConstantTemplate.DefaultLogger.WithIf.png)
 
@@ -61,7 +63,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.ConstantTemplate.DefaultLogger.WithoutIf/bin/Release/net8.0/Execute.ConstantTemplate.DefaultLogger.WithoutIf 
+228ms 753µs 872ns
+```
 
 ![image-20241013202533113](./docs/ConstantTemplate.DefaultLogger.WithoutIf.png)
 
@@ -80,7 +85,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.ConstantTemplate.SerilogLogger.WithIf/bin/Release/net8.0/Execute.ConstantTemplate.SerilogLogger.WithIf 
+154ms 164µs 306ns
+```
 
 ![image-20241013202715299](./docs/ConstantTemplate.SerilogLogger.WithIf.png)
 
@@ -99,7 +107,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.ConstantTemplate.SerilogLogger.WithoutIf/bin/Release/net8.0/Execute.ConstantTemplate.SerilogLogger.WithoutIf 
+153ms 982µs 609ns
+```
 
 ![image-20241013202740898](./docs/ConstantTemplate.SerilogLogger.WithoutIf.png)
 
@@ -123,7 +134,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.ParameterizedTemplate.DefaultLogger.WithIf/bin/Release/net8.0/Execute.ParameterizedTemplate.DefaultLogger.WithIf 
+190ms 213µs 856ns
+```
 
 ![image-20241013203902964](./docs/ParameterizedTemplate.DefaultLogger.WithIf.png)
 
@@ -142,7 +156,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.ParameterizedTemplate.DefaultLogger.WithoutIf/bin/Release/net8.0/Execute.ParameterizedTemplate.DefaultLogger.WithoutIf 
+325ms 668µs 9ns
+```
 
 ![image-20241013203955144](./docs/ParameterizedTemplate.DefaultLogger.WithoutIf1.png)
 
@@ -164,7 +181,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.ParameterizedTemplate.SerilogLogger.WithIf/bin/Release/net8.0/Execute.ParameterizedTemplate.SerilogLogger.WithIf 
+151ms 171µs 873ns
+```
 
 ![image-20241013204048226](./docs/ParameterizedTemplate.SerilogLogger.WithIf.png)
 
@@ -183,7 +203,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.ParameterizedTemplate.SerilogLogger.WithoutIf/bin/Release/net8.0/Execute.ParameterizedTemplate.SerilogLogger.WithoutIf 
+157ms 636µs 13ns
+```
 
 ![image-20241013204129100](./docs/ParameterizedTemplate.SerilogLogger.WithoutIf.png)
 
@@ -207,7 +230,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.FormattedTemplate.DefaultLogger.WithIf/bin/Release/net8.0/Execute.FormattedTemplate.DefaultLogger.WithIf 
+189ms 633µs 888ns
+```
 
 ![image-20241013202854560](./docs/FormattedTemplate.DefaultLogger.WithIf.png)
 
@@ -226,7 +252,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.FormattedTemplate.DefaultLogger.WithoutIf/bin/Release/net8.0/Execute.FormattedTemplate.DefaultLogger.WithoutIf 
+496ms 237µs 952ns
+```
 
 ![image-20241013202936256](./docs/FormattedTemplate.DefaultLogger.WithoutIf0.png)
 
@@ -250,7 +279,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.FormattedTemplate.SerilogLogger.WithIf/bin/Release/net8.0/Execute.FormattedTemplate.SerilogLogger.WithIf 
+152ms 909µs 233ns
+```
 
 ![image-20241013203107938](./docs/FormattedTemplate.SerilogLogger.WithIf.png)
 
@@ -269,13 +301,14 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+````shell
+$ timeit ./Execute.FormattedTemplate.SerilogLogger.WithoutIf/bin/Release/net8.0/Execute.FormattedTemplate.SerilogLogger.WithoutIf 
+354ms 197µs 408ns
+````
 
 ![image-20241013203158005](./docs/FormattedTemplate.SerilogLogger.WithoutIf1.png)
 
 ![image-20241013203223560](./docs/FormattedTemplate.SerilogLogger.WithoutIf2.png)
-
-
 
 ## Interpolated Template Runs
 
@@ -295,7 +328,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.InterpolatedTemplate.DefaultLogger.WithIf/bin/Release/net8.0/Execute.InterpolatedTemplate.DefaultLogger.WithIf 
+190ms 567µs 102ns
+```
 
 ![image-20241013203334150](./docs/InterpolatedTemplate.DefaultLogger.WithIf.png)
 
@@ -314,7 +350,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.InterpolatedTemplate.DefaultLogger.WithoutIf/bin/Release/net8.0/Execute.InterpolatedTemplate.DefaultLogger.WithoutIf 
+453ms 985µs 282ns
+```
 
 ![image-20241013203413926](./docs/InterpolatedTemplate.DefaultLogger.WithoutIf1.png)
 
@@ -336,7 +375,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.InterpolatedTemplate.SerilogLogger.WithIf/bin/Release/net8.0/Execute.InterpolatedTemplate.SerilogLogger.WithIf 
+150ms 964µs 681ns
+```
 
 ![image-20241013203724213](./docs/InterpolatedTemplate.SerilogLogger.WithIf.png)
 
@@ -355,7 +397,10 @@ for (int i = 0; i < Constants.Iterations; i++)
 }
 ```
 
-
+```shell
+$ timeit ./Execute.InterpolatedTemplate.SerilogLogger.WithoutIf/bin/Release/net8.0/Execute.InterpolatedTemplate.SerilogLogger.WithoutIf 
+321ms 544µs 137ns
+```
 
 ![image-20241013203829605](./docs/InterpolatedTemplate.SerilogLogger.WithoutIf1.png)
 
