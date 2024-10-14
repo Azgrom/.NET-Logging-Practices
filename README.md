@@ -8,59 +8,41 @@ Intel Core i7-9750H CPU 2.60GHz, 1 CPU, 12 logical and 6 physical cores
   [Host]     : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
   DefaultJob : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
 
-
-```
-|                                            Method |        Mean |     Error |    StdDev | Completed Work Items | Lock Contentions |   Gen0 | Allocated |
-|-------------------------------------------------- |------------:|----------:|----------:|---------------------:|-----------------:|-------:|----------:|
-|         ConstantTemplate_DefaultLogger_Without_If |  37.1928 ns | 0.4846 ns | 0.4533 ns |                    - |                - |      - |         - |
-|            ConstantTemplate_DefaultLogger_With_If |   7.4783 ns | 0.1336 ns | 0.1184 ns |                    - |                - |      - |         - |
-| Parameterized_DefaultLogger_Without_If_WithParams | 112.6148 ns | 1.0148 ns | 0.9493 ns |                    - |                - | 0.0191 |     120 B |
-|    Parameterized_DefaultLogger_With_If_WithParams |   7.7565 ns | 0.0596 ns | 0.0558 ns |                    - |                - |      - |         - |
-|     Formatted_DefaultLogger_Without_If_WithParams | 197.3810 ns | 2.0268 ns | 1.8959 ns |                    - |                - | 0.0305 |     192 B |
-|        Formatted_DefaultLogger_With_If_WithParams |   7.2926 ns | 0.0197 ns | 0.0175 ns |                    - |                - |      - |         - |
-|  Interpolated_DefaultLogger_Without_If_WithParams | 137.7394 ns | 0.2748 ns | 0.2295 ns |                    - |                - | 0.0203 |     128 B |
-|     Interpolated_DefaultLogger_With_If_WithParams |   7.3041 ns | 0.0382 ns | 0.0338 ns |                    - |                - |      - |         - |
-|         ConstantTemplate_SerilogLogger_Without_If |   1.7583 ns | 0.0270 ns | 0.0226 ns |                    - |                - |      - |         - |
-|            ConstantTemplate_SerilogLogger_With_If |   0.1587 ns | 0.0019 ns | 0.0015 ns |                    - |                - |      - |         - |
-| Parameterized_SerilogLogger_Without_If_WithParams |   8.2585 ns | 0.0397 ns | 0.0351 ns |                    - |                - |      - |         - |
-|    Parameterized_SerilogLogger_With_If_WithParams |   0.1724 ns | 0.0040 ns | 0.0035 ns |                    - |                - |      - |         - |
-|     Formatted_SerilogLogger_Without_If_WithParams | 158.5146 ns | 0.1690 ns | 0.1498 ns |                    - |                - | 0.0305 |     192 B |
-|        Formatted_SerilogLogger_With_If_WithParams |   0.6331 ns | 0.0019 ns | 0.0018 ns |                    - |                - |      - |         - |
-|  Interpolated_SerilogLogger_Without_If_WithParams |  99.7871 ns | 0.2268 ns | 0.2011 ns |                    - |                - | 0.0204 |     128 B |
-|     Interpolated_SerilogLogger_With_If_WithParams |   1.1581 ns | 0.0272 ns | 0.0255 ns |                    - |                - |      - |         - |
-// * Hints *
-Outliers
-CompareEmptyLogsBenchmark.ConstantTemplate_DefaultLogger_With_If: Default            -> 1 outlier  was  removed (10.86 ns)
-CompareEmptyLogsBenchmark.Formatted_DefaultLogger_With_If_WithParams: Default        -> 1 outlier  was  removed (9.89 ns)
-CompareEmptyLogsBenchmark.Interpolated_DefaultLogger_Without_If_WithParams: Default  -> 2 outliers were removed (142.13 ns, 142.27 ns)
-CompareEmptyLogsBenchmark.ConstantTemplate_SerilogLogger_Without_If: Default         -> 2 outliers were removed (4.34 ns, 4.38 ns)
-CompareEmptyLogsBenchmark.ConstantTemplate_SerilogLogger_With_If: Default            -> 2 outliers were removed (2.65 ns, 2.75 ns)
-CompareEmptyLogsBenchmark.Parameterized_SerilogLogger_Without_If_WithParams: Default -> 1 outlier  was  removed (10.84 ns)
-CompareEmptyLogsBenchmark.Parameterized_SerilogLogger_With_If_WithParams: Default    -> 1 outlier  was  removed (2.67 ns)
-CompareEmptyLogsBenchmark.Formatted_SerilogLogger_Without_If_WithParams: Default     -> 1 outlier  was  removed (162.81 ns)
-CompareEmptyLogsBenchmark.Interpolated_SerilogLogger_Without_If_WithParams: Default  -> 1 outlier  was  removed (108.14 ns)
-
 // * Legends *
-Mean                 : Arithmetic mean of all measurements
-Error                : Half of 99.9% confidence interval
-StdDev               : Standard deviation of all measurements
-Completed Work Items : The number of work items that have been processed in ThreadPool (per single operation)
-Lock Contentions     : The number of times there was contention upon trying to take a Monitor's lock (per single operation)
-Gen0                 : GC Generation 0 collects per 1000 operations
-Allocated            : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
-1 ns                 : 1 Nanosecond (0.000000001 sec)
-
-// * Diagnostic Output - ThreadingDiagnoser *
-
-// * Diagnostic Output - MemoryDiagnoser *
-
+Mean      : Arithmetic mean of all measurements
+Error     : Half of 99.9% confidence interval
+StdDev    : Standard deviation of all measurements
+Median    : Value separating the higher half of all measurements (50th percentile)
+Gen0      : GC Generation 0 collects per 1000 operations
+Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+1 ns      : 1 Nanosecond (0.000000001 sec)
 
 // ***** BenchmarkRunner: End *****
-Run time: 00:06:38 (398.96 sec), executed benchmarks: 16
+Run time: 00:08:01 (481.37 sec), executed benchmarks: 16
 
-Global total time: 00:07:54 (474.71 sec), executed benchmarks: 16
-// * Artifacts cleanup *
-Artifacts cleanup is finished
+Global total time: 00:09:18 (558.23 sec), executed benchmarks: 16
+```
+|                                            Method |        Mean |     Error |    StdDev |      Median |   Gen0 | Allocated |
+|-------------------------------------------------- |------------:|----------:|----------:|------------:|-------:|----------:|
+|         ConstantTemplate_DefaultLogger_Without_If |  36.9356 ns | 0.3398 ns | 0.3178 ns |  36.8560 ns |      - |         - |
+|            ConstantTemplate_DefaultLogger_With_If |   7.5069 ns | 0.0907 ns | 0.0804 ns |   7.5172 ns |      - |         - |
+|         ConstantTemplate_SerilogLogger_Without_If |   0.8669 ns | 0.0099 ns | 0.0088 ns |   0.8700 ns |      - |         - |
+|            ConstantTemplate_SerilogLogger_With_If |   0.0507 ns | 0.0016 ns | 0.0013 ns |   0.0504 ns |      - |         - |
+|                                                   |             |           |           |             |        |           |
+|     Formatted_DefaultLogger_Without_If_WithParams | 198.4191 ns | 0.8614 ns | 0.8057 ns | 198.0270 ns | 0.0305 |     192 B |
+|        Formatted_DefaultLogger_With_If_WithParams |   7.4654 ns | 0.0369 ns | 0.0345 ns |   7.4791 ns |      - |         - |
+|     Formatted_SerilogLogger_Without_If_WithParams | 166.2647 ns | 0.9291 ns | 0.8236 ns | 166.1021 ns | 0.0305 |     192 B |
+|        Formatted_SerilogLogger_With_If_WithParams |   0.4203 ns | 0.0068 ns | 0.0060 ns |   0.4204 ns |      - |         - |
+|                                                   |             |           |           |             |        |           |
+|  Interpolated_DefaultLogger_Without_If_WithParams | 139.7757 ns | 1.1509 ns | 1.0766 ns | 140.0550 ns | 0.0203 |     128 B |
+|     Interpolated_DefaultLogger_With_If_WithParams |   7.2631 ns | 0.0020 ns | 0.0015 ns |   7.2634 ns |      - |         - |
+|  Interpolated_SerilogLogger_Without_If_WithParams |  99.2220 ns | 0.0839 ns | 0.0700 ns |  99.2468 ns | 0.0204 |     128 B |
+|     Interpolated_SerilogLogger_With_If_WithParams |   0.7418 ns | 0.0174 ns | 0.0163 ns |   0.7377 ns |      - |         - |
+|                                                   |             |           |           |             |        |           |
+| Parameterized_DefaultLogger_Without_If_WithParams | 110.1719 ns | 0.1461 ns | 0.1220 ns | 110.1430 ns | 0.0191 |     120 B |
+|    Parameterized_DefaultLogger_With_If_WithParams |   7.6346 ns | 0.0179 ns | 0.0150 ns |   7.6336 ns |      - |         - |
+| Parameterized_SerilogLogger_Without_If_WithParams |   0.0079 ns | 0.0019 ns | 0.0018 ns |   0.0074 ns |      - |         - |
+|    Parameterized_SerilogLogger_With_If_WithParams |   0.7762 ns | 0.0943 ns | 0.2781 ns |   0.8919 ns |      - |         - |
 
 ```csharp
 public static class Constants
